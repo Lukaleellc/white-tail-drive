@@ -1,65 +1,487 @@
+"use client";
+
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 
+const navLinks = [
+  { id: 'property', label: 'Property' },
+  { id: 'landscape', label: 'Landscape' },
+  { id: 'wildlife', label: 'Wildlife' },
+  { id: 'ag', label: 'Ag Exemption' },
+  { id: 'tech', label: 'Technology' },
+  { id: 'attractions', label: 'Attractions' },
+];
+
 export default function Home() {
+  const [activeSection, setActiveSection] = useState('property');
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Force 'property' target when hovering at the very top of the Hero.
+      if (window.scrollY < 100) {
+        setActiveSection('property');
+        return;
+      }
+
+      // Add a viewport offset so the transition feels natural as the next section enters.
+      const scrollPosition = window.scrollY + window.innerHeight / 3;
+      const reversedLinks = [...navLinks].reverse();
+      
+      for (const link of reversedLinks) {
+        const section = document.getElementById(link.id);
+        if (section && section.offsetTop <= scrollPosition) {
+          setActiveSection(link.id);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const [currentSlide, setCurrentSlide] = useState(1);
+  const totalSlides = 4;
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  const handleScroll = () => {
+    if (!carouselRef.current) return;
+    const scrollPosition = carouselRef.current.scrollLeft;
+    const width = carouselRef.current.offsetWidth;
+    const newSlide = Math.round(scrollPosition / width) + 1;
+    setCurrentSlide(newSlide);
+  };
+  
+  const scrollPrev = () => {
+    if (carouselRef.current) {
+      if (currentSlide === 1) {
+        carouselRef.current.scrollLeft = carouselRef.current.scrollWidth;
+      } else {
+        carouselRef.current.scrollLeft -= carouselRef.current.offsetWidth;
+      }
+    }
+  };
+
+  const scrollNext = () => {
+    if (carouselRef.current) {
+      if (currentSlide === totalSlides) {
+        carouselRef.current.scrollLeft = 0;
+      } else {
+        carouselRef.current.scrollLeft += carouselRef.current.offsetWidth;
+      }
+    }
+  };
+
+  const wildlifeRef = useRef<HTMLDivElement>(null);
+  const [wildlifeSlide, setWildlifeSlide] = useState(1);
+  const wildlifeTotal = 5;
+
+  const handleWildlifeScroll = () => {
+    if (!wildlifeRef.current) return;
+    const scrollPosition = wildlifeRef.current.scrollLeft;
+    const width = wildlifeRef.current.offsetWidth;
+    const newSlide = Math.round(scrollPosition / width) + 1;
+    setWildlifeSlide(newSlide);
+  };
+  
+  const scrollWildlifePrev = () => {
+    if (wildlifeRef.current) {
+      if (wildlifeSlide === 1) {
+        wildlifeRef.current.scrollLeft = wildlifeRef.current.scrollWidth;
+      } else {
+        wildlifeRef.current.scrollLeft -= wildlifeRef.current.offsetWidth;
+      }
+    }
+  };
+
+  const scrollWildlifeNext = () => {
+    if (wildlifeRef.current) {
+      if (wildlifeSlide === wildlifeTotal) {
+        wildlifeRef.current.scrollLeft = 0;
+      } else {
+        wildlifeRef.current.scrollLeft += wildlifeRef.current.offsetWidth;
+      }
+    }
+  };
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
+    <div className="bg-[#0c0a09] min-h-screen text-[#e7e5e4] selection:bg-[#ece1d3] selection:text-[#453f34]">
+      {/* TopNavBar */}
+      <nav className="fixed top-0 w-full z-50 bg-[#0c0a09]/70 backdrop-blur-[20px]">
+        <div className="flex justify-between items-center w-full px-6 md:px-12 py-6">
+          <div className="text-xl font-bold tracking-widest text-[#f5f5f4] font-serif uppercase">WHITE TAIL</div>
+          <div className="hidden md:flex items-center space-x-10">
+            {navLinks.map((link) => (
+              <a 
+                key={link.id} 
+                className={`pb-1 font-sans text-[0.75rem] uppercase tracking-[0.1rem] transition-all duration-500 ${
+                  activeSection === link.id 
+                    ? "text-[#f5f5f4] border-b border-[#f5f5f4]" 
+                    : "text-[#a8a29e] border-b border-transparent hover:text-[#e7e5e4]"
+                }`} 
+                href={`#${link.id}`}
+                onClick={() => setActiveSection(link.id)}
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+          <button className="bg-[#f5f5f4] text-[#0c0a09] px-8 py-2.5 text-[0.75rem] uppercase tracking-widest font-semibold hover:bg-[#e7e5e4] transition-all duration-300">
+            Inquire
+          </button>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="relative w-full overflow-hidden h-[80vh]" id="property">
+        <Image 
+          className="absolute inset-0 w-full h-full object-cover" 
+          alt="Cinematic shot of a spring-fed pond at the Austin rural estate" 
+          src="https://lh3.googleusercontent.com/aida/ADBb0uiLomJ4AvBNEgqUCmHAQWKhz1I85cp9AiXjbTyZP5vVeJ1wg-FQBmSQ3_pWYcUCbr8ypAFTY8GY5OFiDjeHV6X805Z-upArh7iYUakwmMHDgKbojImVkr4Hs-bemSQADZebb3TYptQ27fCKXGiZbXxuu25wI9vtgMiDp5dqZBbZQnzFtcjptlDNMpVklSEiCnGTE8LGPPJSJuI8u5BMDT6hMtapPXdYBE_kg1o1lxkdX6wGD_UWDOzDWJi3HRedKva9etQ8rOlZkxk"
+          fill
           priority
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent from-60% to-[#0c0a09]"></div>
+        <div className="absolute inset-0 flex flex-col justify-end px-6 md:px-12 pb-24 max-w-7xl mx-auto w-full">
+          <div className="max-w-3xl">
+            <span className="inline-block mb-6 text-[#a8a29e] font-sans text-[0.75rem] uppercase tracking-[0.3rem]">East of Austin, Texas</span>
+            <h1 className="text-5xl md:text-8xl font-serif font-bold text-[#f5f5f4] leading-[1.1] mb-8 tracking-tight">
+              35 Acres of <br />Unfiltered Silence.
+            </h1>
+            <div className="flex flex-col md:flex-row md:items-center gap-8 text-[#d6d3d1]">
+              <p className="text-lg md:text-xl font-light leading-relaxed max-w-xl">
+                A sanctuary where the rolling topography of the Texas Hill Country meets the modern precision of architectural design.
+              </p>
+              <div className="flex items-center gap-4 group cursor-pointer">
+                <div className="w-12 h-12 rounded-full border border-[#78716c] flex flex-shrink-0 items-center justify-center group-hover:bg-[#f5f5f4] group-hover:text-[#1c1917] transition-all duration-500">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M320-200v-560l440 280-440 280Z"/></svg>
+                </div>
+                <span className="uppercase text-[0.7rem] tracking-widest font-semibold">Play Property Film</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Description / Intro Section */}
+      <section className="py-32 px-6 md:px-12 bg-stone-950">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 md:gap-32 items-start">
+          <div className="w-full md:w-1/3">
+            <h2 className="text-stone-500 font-sans text-[0.75rem] uppercase tracking-[0.2rem] mb-6">Description</h2>
+            <h3 className="text-3xl font-serif text-stone-100 leading-snug italic">"Luxury is not the presence of things, but the absence of noise."</h3>
+          </div>
+          <div className="w-full md:w-2/3">
+            <p className="text-stone-400 text-xl font-light leading-loose mb-12">
+              Situated just thirty minutes east of Austin's vibrant core, this 35-acre estate offers a rare equilibrium between accessibility and isolation. The land has been meticulously preserved to showcase the raw beauty of Central Texas—from the ancient Post Oaks that anchor the horizon to the crystalline waters of the spring-fed pond.
+            </p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
+              <div>
+                <div className="text-stone-100 text-3xl font-serif mb-2">35</div>
+                <div className="text-stone-600 font-sans text-[0.65rem] uppercase tracking-widest">Total Acres</div>
+              </div>
+              <div>
+                <div className="text-stone-100 text-3xl font-serif mb-2">1.5</div>
+                <div className="text-stone-600 font-sans text-[0.65rem] uppercase tracking-widest">Acre Pond</div>
+              </div>
+              <div>
+                <div className="text-stone-100 text-3xl font-serif mb-2">12k</div>
+                <div className="text-stone-600 font-sans text-[0.65rem] uppercase tracking-widest">Sq Ft Living</div>
+              </div>
+              <div>
+                <div className="text-stone-100 text-3xl font-serif mb-2">∞</div>
+                <div className="text-stone-600 font-sans text-[0.65rem] uppercase tracking-widest">Privacy</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Landscape Gallery Section */}
+      <section className="bg-stone-950 py-12" id="landscape">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="flex justify-between items-end border-stone-900/50 mb-12">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-serif text-stone-100">Landscape</h2>
+              <p className="text-stone-500 font-sans text-[0.7rem] uppercase tracking-[0.3rem] mt-4">The Texas Hill Country</p>
+              <p className="text-stone-400 text-lg font-light leading-relaxed mb-10 mt-8 max-w-3xl">
+                The Texas Hill Country unfolds in its purest form across these 35 acres. From the ancient Post Oaks that anchor the horizon to the crystalline waters of the spring-fed pond, the land has been meticulously preserved to showcase the raw beauty of Central Texas.
+              </p>
+            </div>
+          </div>
+          <div className="relative group">
+            {/* Carousel Container */}
+            <div 
+              ref={carouselRef}
+              onScroll={handleScroll}
+              className="flex overflow-x-auto snap-x snap-mandatory h-[50vh] md:h-[70vh] hide-scrollbar scroll-smooth" 
+              id="landscape-carousel"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+              <div className="min-w-full h-full snap-start relative">
+                <Image className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-1000" alt="Wide landscape of rolling hills and post oak trees" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcGBLpAI_PpcjXp2u7uYXGvSCEVxeUCS2Saw-rpPy9ejUu2h5StjPUNucCCt9UmRbWj3abG85gK-7MNDQDYXlsRFPH1orZWzJVKFutPShlhfaHbi5UlpAPdIkFyLAWy0AIpAXqhndVQ8Ov379VYw4CTjFlIU7WWrr05NCgdSs1sgtLmO5RUNq_6I7n9j3wgblZSBswbvUXh7pForm8Zfn4Jd3ZzrkqqEm9bmSqfjpf5G28mrlTShqIhJG85NDCIPmDMGDSNFnVfftp" fill />
+              </div>
+              <div className="min-w-full h-full snap-start relative">
+                <Image className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-1000" alt="Lush cedar elm grove in morning mist" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZYWoXtNCYF1v-VeKxO-n28w2VmILsz3wk-A3XsIt4Z3_eiH3iKHeflvX87XSqhvm0bNx3agWGDg53QgyV6Q1lHcNirzQsS_Q_5Lc29wTNtH98v1okkaETJAUqthzkBKrktjlCbYRmmAuRyGPvHre3VtSQAWDQja5cRol2zIv48FYepG_P9RH_7oelFK4sxYKNe9sjjUTIlIAltC5TldLKq230e3wnpcS-lplWv3Ps46uiQ_ZLzlgeW6tBttKg3fEJadj3yEmzTHV_" fill />
+              </div>
+              <div className="min-w-full h-full snap-start relative">
+                <Image className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-1000" alt="Golden hour light through prairie grass" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBVFnTBE9puAv1eCAFndw46ulx9fWOJB4ICF-otm4kwgWxYahTt2osUUfsXa7mg4pvZv1zOw2bLlpmrDE2a3Gvxz7_HuBW0yRm13N_FOgM6Jy-mtfL-t6dGhF186kHrnR8qCJ4JcuYgxFnt1kU7BMaLMn7iQs1fGqDvCVPVY_EewznSEC0fCXd5yS33-C__IAJvhrLQx44nYX4OaRUeUAUwNmowD4K5tn9AJh5rKNmRyaGt8xovCNVpmUoPa1LK53Qe_EtewvVlz3m" fill />
+              </div>
+              <div className="min-w-full h-full snap-start relative">
+                <Image className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-1000" alt="Close up of a pond at dawn with soft reflections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUDlRhoxNHOFWj4BVfqvcMw2r61Xv9IdFBpzvqDirvOgbxhRUgGxKJVz1o2ae0qv8hC3GLRnnUuV6_frrRNdK0YjrwxWGGCXeVljwWmGe52foj1nUY2LgFHIZJAty9xkUmdXZhIPO4dvnqVm_MKCzv2UrzoKSr0mFn5iI_b-aYp7GLP-kSVHNCb0lRIIfls6WPPYIvVjj7o_12rXTl2DBz6J8DX8EmEG-VEObQS_zkVvXGSUOXIjC9iZPsNPpEhUAj69SE_FLc9z2x" fill />
+              </div>
+            </div>
+          </div>
+          {/* Controls */}
+          <div className="flex flex-col items-center gap-6 mt-12">
+            <div className="flex items-center gap-6">
+              <button className="w-14 h-14 rounded-full border border-stone-800 flex items-center justify-center text-stone-400 hover:border-stone-100 hover:text-stone-100 transition-all duration-300" onClick={scrollPrev}>
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z"/></svg>
+              </button>
+              <div className="bg-stone-900/50 backdrop-blur-md px-6 py-3 rounded-full border border-stone-800/50 min-w-[120px] text-center flex justify-center">
+                <span className="text-stone-100 font-sans text-[0.75rem] uppercase tracking-[0.2rem]">
+                  {String(currentSlide).padStart(2, '0')} <span className="text-stone-600 mx-2">/</span> {String(totalSlides).padStart(2, '0')}
+                </span>
+              </div>
+              <button className="w-14 h-14 rounded-full border border-stone-800 flex items-center justify-center text-stone-400 hover:border-stone-100 hover:text-stone-100 transition-all duration-300" onClick={scrollNext}>
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Wildlife Gallery Section */}
+      <section className="py-32 px-6 md:px-12 bg-[#121212] overflow-hidden" id="wildlife">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+            <div className="max-w-xl">
+              <span className="inline-block mb-4 text-[#00A3FF] font-sans text-[0.7rem] uppercase tracking-[0.4rem] font-bold">The Wild Inhabitants</span>
+              <h2 className="text-4xl md:text-6xl font-serif text-stone-100 mb-8 leading-tight">Wildlife Gallery</h2>
+              <p className="text-stone-400 text-lg font-light leading-relaxed">
+                This land isn't just ours; it's a thriving sanctuary for those who have called these hills home for centuries. We believe in an architecture of co-existence, where modern life yields to the natural rhythms of the local fauna.
+              </p>
+            </div>
+            <div className="flex items-center gap-6">
+              <button className="group flex items-center gap-3 text-[#00A3FF] hover:text-white transition-colors duration-300">
+                <span className="text-[0.75rem] uppercase tracking-[0.2rem] font-bold">Explore Habitat</span>
+                <span className="w-12 h-px bg-[#00A3FF] group-hover:w-16 transition-all duration-500"></span>
+              </button>
+            </div>
+          </div>
+          
+          {/* Editorial Grid (Desktop) / Carousel (Mobile) */}
+          <div 
+            ref={wildlifeRef}
+            onScroll={handleWildlifeScroll}
+            id="wildlife-carousel"
+            className="flex md:grid grid-cols-1 md:grid-cols-12 md:grid-rows-6 gap-6 h-[50vh] md:h-[1100px] overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none hide-scrollbar scroll-smooth"
+          >
+            <div className="md:col-span-8 md:row-span-4 relative group overflow-hidden snap-start h-full md:h-auto min-w-full md:min-w-0">
+              <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Majestic whitetail deer buck in morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtiteZ2MsuK8rPpP9XaUGdFGnXAb7wJmBvi8oInrqtoc-h6Dh7jC41X0otKIgxYoZGHrdKO6dQRGDMniTo9HjEX2VmUONGrc_kiciwJcogDRQmQ7hpMAHgpKjCLle8k6Ga8E6DOhNztPKcY3PSM22Xefe45NHR3GkqMHLTwkwTZ206FSWg3rnEWQwuStTOmKTRtrat2sa1R2Vtc95I_V9JjEEoLgcRg2PKA8pfZ8P0-ZwmKvocAF0yCZTtlDMI2H0ArXHuw_AGui9-" />
+            </div>
+            <div className="md:col-span-4 md:row-span-4 relative group overflow-hidden snap-start h-full md:h-auto min-w-full md:min-w-0">
+              <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105 grayscale hover:grayscale-0" alt="A Great Blue Heron by the spring-fed pond" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUDlRhoxNHOFWj4BVfqvcMw2r61Xv9IdFBpzvqDirvOgbxhRUgGxKJVz1o2ae0qv8hC3GLRnnUuV6_frrRNdK0YjrwxWGGCXeVljwWmGe52foj1nUY2LgFHIZJAty9xkUmdXZhIPO4dvnqVm_MKCzv2UrzoKSr0mFn5iI_b-aYp7GLP-kSVHNCb0lRIIfls6WPPYIvVjj7o_12rXTl2DBz6J8DX8EmEG-VEObQS_zkVvXGSUOXIjC9iZPsNPpEhUAj69SE_FLc9z2x" />
+            </div>
+            <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start h-full md:h-auto min-w-full md:min-w-0">
+              <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Wild turkeys roaming through the tall prairie grass" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBVFnTBE9puAv1eCAFndw46ulx9fWOJB4ICF-otm4kwgWxYahTt2osUUfsXa7mg4pvZv1zOw2bLlpmrDE2a3Gvxz7_HuBW0yRm13N_FOgM6Jy-mtfL-t6dGhF186kHrnR8qCJ4JcuYgxFnt1kU7BMaLMn7iQs1fGqDvCVPVY_EewznSEC0fCXd5yS33-C__IAJvhrLQx44nYX4OaRUeUAUwNmowD4K5tn9AJh5rKNmRyaGt8xovCNVpmUoPa1LK53Qe_EtewvVlz3m" />
+            </div>
+            <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start h-full md:h-auto min-w-full md:min-w-0">
+              <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Golden hour light highlighting native prairie grasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcGBLpAI_PpcjXp2u7uYXGvSCEVxeUCS2Saw-rpPy9ejUu2h5StjPUNucCCt9UmRbWj3abG85gK-7MNDQDYXlsRFPH1orZWzJVKFutPShlhfaHbi5UlpAPdIkFyLAWy0AIpAXqhndVQ8Ov379VYw4CTjFlIU7WWrr05NCgdSs1sgtLmO5RUNq_6I7n9j3wgblZSBswbvUXh7pForm8Zfn4Jd3ZzrkqqEm9bmSqfjpf5G28mrlTShqIhJG85NDCIPmDMGDSNFnVfftp" />
+            </div>
+            <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start h-full md:h-auto min-w-full md:min-w-0">
+              <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105 grayscale hover:grayscale-0" alt="Lush cedar elm grove placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZYWoXtNCYF1v-VeKxO-n28w2VmILsz3wk-A3XsIt4Z3_eiH3iKHeflvX87XSqhvm0bNx3agWGDg53QgyV6Q1lHcNirzQsS_Q_5Lc29wTNtH98v1okkaETJAUqthzkBKrktjlCbYRmmAuRyGPvHre3VtSQAWDQja5cRol2zIv48FYepG_P9RH_7oelFK4sxYKNe9sjjUTIlIAltC5TldLKq230e3wnpcS-lplWv3Ps46uiQ_ZLzlgeW6tBttKg3fEJadj3yEmzTHV_" />
+            </div>
+          </div>
+          
+          <div className="flex flex-col items-center md:hidden">
+            <div className="mt-12 flex items-center gap-6">
+              <button className="w-14 h-14 rounded-full border border-stone-800 flex items-center justify-center text-stone-400 hover:border-stone-100 hover:text-stone-100 transition-all duration-300" onClick={scrollWildlifePrev}>
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z"/></svg>
+              </button>
+              <div className="bg-stone-900/50 backdrop-blur-md px-6 py-3 rounded-full border border-stone-800/50 min-w-[120px] text-center flex justify-center">
+                 <span className="text-stone-100 font-sans text-[0.75rem] uppercase tracking-[0.2rem]">
+                  {String(wildlifeSlide).padStart(2, '0')} <span className="text-stone-600 mx-2">/</span> {String(wildlifeTotal).padStart(2, '0')}
+                 </span>
+              </div>
+               <button className="w-14 h-14 rounded-full border border-stone-800 flex items-center justify-center text-stone-400 hover:border-stone-100 hover:text-stone-100 transition-all duration-300" onClick={scrollWildlifeNext}>
+                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Ag Exemption Section */}
+      <section className="py-32 bg-stone-950/50" id="ag">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+            <div className="order-2 md:order-1 relative w-full aspect-[4/5] rounded-sm overflow-hidden group">
+              <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Graceful whitetail deer in a sun-dappled meadow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtiteZ2MsuK8rPpP9XaUGdFGnXAb7wJmBvi8oInrqtoc-h6Dh7jC41X0otKIgxYoZGHrdKO6dQRGDMniTo9HjEX2VmUONGrc_kiciwJcogDRQmQ7hpMAHgpKjCLle8k6Ga8E6DOhNztPKcY3PSM22Xefe45NHR3GkqMHLTwkwTZ206FSWg3rnEWQwuStTOmKTRtrat2sa1R2Vtc95I_V9JjEEoLgcRg2PKA8pfZ8P0-ZwmKvocAF0yCZTtlDMI2H0ArXHuw_AGui9-" />
+            </div>
+            <div className="order-1 md:order-2">
+              <h2 className="text-stone-500 font-sans text-[0.75rem] uppercase tracking-[0.2rem] mb-6">Wildlife & Ecology</h2>
+              <h3 className="text-4xl md:text-5xl font-serif text-stone-100 leading-tight mb-8">Ag Exemption</h3>
+              <p className="text-stone-400 text-lg font-light leading-relaxed mb-10">
+                The property is under a wildlife management exemption, fostering a thriving habitat for native species. From the majestic Whitetail deer to the Great Blue Herons that frequent the pond, the estate is a living, breathing canvas.
+              </p>
+              <ul className="space-y-6">
+                <li className="flex items-start gap-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-stone-500 mt-1 flex-shrink-0"><path d="M11 20A7 7 0 0 1 9 9V2a7 7 0 0 1 12 12v5h-5a7 7 0 0 1-5-5Z"/><path d="m11 20 6-6"/></svg>
+                  <div>
+                    <h4 className="text-stone-200 font-semibold text-sm uppercase tracking-wider">Habitat Restoration</h4>
+                    <p className="text-stone-500 text-sm">Ongoing native grass prairie re-establishment.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-stone-500 mt-1 flex-shrink-0"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
+                  <div>
+                    <h4 className="text-stone-200 font-semibold text-sm uppercase tracking-wider">Hydrology</h4>
+                    <p className="text-stone-500 text-sm">Natural aquifer filtration systems.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Technology / Business Section */}
+      <section className="py-32 bg-[#0c0a09] relative overflow-hidden bg-gradient-to-br from-[#00A3FF]/15 to-transparent to-50% border-y border-stone-900/50" id="tech">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="relative z-10">
+            <span className="inline-block mb-6 text-[#00A3FF] font-sans text-[0.7rem] uppercase tracking-[0.4rem] font-bold">Economic Epicenter</span>
+            <h2 className="text-4xl md:text-6xl font-serif font-bold text-stone-100 leading-tight mb-8">The East Austin <br/>Tech Explosion.</h2>
+            <p className="text-stone-400 text-lg font-light leading-relaxed mb-10 max-w-xl">
+              Positioned at the nexus of global innovation, the estate offers unparalleled proximity to the giants of the future. The transformation of East Austin, Cedar Creek, and Bastrop County is redefining the Texas economy.
+            </p>
+            <div className="grid grid-cols-2 gap-8 border-l border-stone-800 pl-8">
+              <div>
+                <div className="text-stone-500 font-sans text-[0.6rem] uppercase tracking-widest mb-1">Corporate Proximity</div>
+                <div className="text-stone-100 font-bold text-lg">Tesla GigaFactory</div>
+              </div>
+              <div>
+                <div className="text-stone-500 font-sans text-[0.6rem] uppercase tracking-widest mb-1">Aerospace Hub</div>
+                <div className="text-stone-100 font-bold text-lg">SpaceX / X</div>
+              </div>
+              <div>
+                <div className="text-stone-500 font-sans text-[0.6rem] uppercase tracking-widest mb-1">AI Research</div>
+                <div className="text-stone-100 font-bold text-lg">xAI Campus</div>
+              </div>
+              <div>
+                <div className="text-stone-500 font-sans text-[0.6rem] uppercase tracking-widest mb-1">Infrastructure</div>
+                <div className="text-stone-100 font-bold text-lg">Bastrop Tech Corridor</div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="relative h-[500px] group">
+            {/* Outline Offset Box */}
+            <div className="absolute inset-0 border border-stone-800 translate-x-4 translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500 z-0"></div>
+            
+            {/* Masked Image Container */}
+            <div className="relative w-full h-full z-10 overflow-hidden bg-stone-900 border border-stone-900 w-full h-full rounded-sm">
+              <Image 
+                fill 
+                className="object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-1000" 
+                alt="Modern high-tech industrial architecture" 
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgkMT9M3MvqG5yEPH9HdNHm3XhuLEhnmRKTMj1JyBvJQyPdeEG9dgbqOLQwTaoklq2tQKncPgDa1bjeuP1tjDCVAq7KnwM5h0QTgq-wsRTfk4HGP4IN4oppiFZCIXccb_pFp36TjFhsTy-D-JIPBf05aiicwVvCtd93g2Ykz11fQBmilBOoITScQVgK-eusZkZhEdg6_3E-LOYgUWIcA3w7E8wQls6rEY0QP8M1GdAQcLJ6CdM1dy6HEoSYRVLg2HAkRD4K_fMYXEr" 
+              />
+              
+              {/* Rocket Icon Overlay */}
+              <div className="absolute top-0 right-0 p-8 z-20">
+                <div className="w-16 h-16 rounded-full border border-stone-100/20 backdrop-blur-md flex items-center justify-center bg-black/20">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-stone-100"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Local Attractions Section */}
+      <section className="py-32 px-6 md:px-12 bg-stone-950" id="attractions">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="text-center mb-20">
+            <span className="inline-block mb-4 text-stone-500 font-sans text-[0.75rem] uppercase tracking-[0.3rem]">Explore Your Neighborhood</span>
+            <h2 className="text-4xl md:text-5xl font-serif text-stone-100 mb-6">Privacy & Proximity</h2>
+            <p className="text-stone-400 text-lg font-light max-w-2xl mx-auto leading-relaxed">
+              While the silence here is absolute, the energy of Central Texas is always within reach. A world of vibrant experiences awaits within a 20-minute drive.
+            </p>
+          </div>
+          
+          {/* Masonry-style Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
+            <div className="md:col-span-2 relative group overflow-hidden rounded-sm">
+              <Image fill className="object-cover hover:scale-105 transition-transform duration-1000" alt="Gourmet dining experience in Austin" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-Xyx8S9TwB_nf98sjnWsYFpZd3OSjNmwcmJCHOPvmYH4zaB7ssOVsrshmrpYUTOFwLC1ytl2wp3qe34kyUpj-R9pUJhUv0syolmh7L4RtCGa9SKYR-XfQgj3RyGWgVlGUiHe8sKrZWYQYQlCRM6qDXPEcAaaHe8NnPfhFaLc-5c-qPL-nSD8-_qzBNBg9kwJXvs1Hrj2lnSROSeS7zR5zpQRk83fNUSt_YY_2Pevw3W1_9KptMl-6tFqDNyvpktDffD6CHt2tuhlu" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8">
+                <span className="text-stone-400 font-sans text-[0.65rem] uppercase tracking-widest mb-2">Gastronomy</span>
+                <h4 className="text-2xl font-serif text-stone-100 italic">Chef-Driven Excellence</h4>
+              </div>
+            </div>
+            
+            <div className="relative group overflow-hidden rounded-sm">
+              <Image fill className="object-cover hover:scale-105 transition-transform duration-1000" alt="High-end shopping district" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBQ-Yr0BhQOJ7MTamjESRtd84KXUKRixs3A-hi44wrp3bB7t2f6KsrgGoeukddoX6182rvVydClCsb7KziFka4dCqcZgdci6X1CxtS3YOc35pfmSppgGzXO88w_lQ-tS6BkiVT_dpVdCnaF-mjR1657Is4w4p_3XvOCIkLTHkDzSyKOG2TCSOBg4Eu1SkQXyyD5OXhXsdwAKoKYfI4vcJg3tdaMChQZGXZ87EJwJz9Jpksdq3VQ1NrSnO-z4EkXl9cYiZsHM59LIHZ" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-6">
+                <span className="text-stone-400 font-sans text-[0.65rem] uppercase tracking-widest mb-2">Lifestyle</span>
+                <h4 className="text-xl font-serif text-stone-100">Curated Retail</h4>
+              </div>
+            </div>
+            
+            <div className="relative group overflow-hidden rounded-sm">
+              <Image fill className="object-cover hover:scale-105 transition-transform duration-1000" alt="Scenic river views" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWUuXwpL8ao31uPtFaflTn43aNRaBCgxKfPFOPOzdC41sfxd3PqSLEHwikR0lxsZe1l3GeNySCCF_8ad6sfqrc0S5-DbrVIwyrQAKZIqae9uR4WzBRnXwFhZbQMj7AVcCtXl328GnsMbD2DsLYwcBfbSc1RcQxs4yJmDOc8wj5TRXHKFajlB5nGaYU6nouFiF2_YTP1MMucHOkCt9IPWxU4O5G-vM32NQHjTk_Pej5a4Li6CDTrkS9pIC3-H2yr4uKaEDNoCb_TMp4" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-6">
+                <span className="text-stone-400 font-sans text-[0.65rem] uppercase tracking-widest mb-2">Nature</span>
+                <h4 className="text-xl font-serif text-stone-100">Colorado River Access</h4>
+              </div>
+            </div>
+            
+            <div className="md:col-span-2 relative group overflow-hidden rounded-sm">
+              <Image fill className="object-cover hover:scale-105 transition-transform duration-1000" alt="Live music performance in Austin" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoIT0VOyrVZWRrFjbKOPg79C_xVGZ6n89ibpJ_Xr_G9Z_CLptt35NJWH1hSZWyhvP05iqXPVUhPiwkmQ9jk2EzaoM0B9hgGoa8gUhlM8vkHAQjG9jaav0O742gxnP4wX_LgtF8aAvTcL-7xCBULLMcl4R1FUEtPGW0WCJgsG7pGQUsaM-DXJzODOzT9RrnPskRUlreOHYU8_G45GDlW2DWAkmlP6o7G9KAbTGwp0my4jISH4PUTlBgrZqDBvG1EgZuNTm7wUgFTi7Y" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8">
+                <span className="text-stone-400 font-sans text-[0.65rem] uppercase tracking-widest mb-2">Entertainment</span>
+                <h4 className="text-2xl font-serif text-stone-100 italic">World-Class Live Venues</h4>
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-16 text-center">
+            <button className="border border-stone-800 text-stone-400 px-10 py-4 text-[0.7rem] uppercase tracking-[0.2rem] font-bold hover:bg-stone-100 hover:text-stone-950 transition-all duration-300">
+              Discover the Area
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Map/CTA Section */}
+      <section className="py-32 px-6 md:px-12 bg-stone-950 flex flex-col items-center">
+        <div className="max-w-4xl text-center">
+          <h2 className="text-stone-500 font-sans text-[0.75rem] uppercase tracking-[0.2rem] mb-12">Private Tour</h2>
+          <h3 className="text-4xl md:text-6xl font-serif text-stone-100 mb-12">Witness the stillness.</h3>
+          <p className="text-stone-400 text-xl font-light mb-16 leading-relaxed">
+            We invite qualified buyers to experience the property in person. Guided tours available by appointment only.
           </p>
+          <div className="flex flex-col md:flex-row gap-6 justify-center">
+            <a className="bg-stone-100 text-stone-950 px-12 py-5 text-[0.9rem] uppercase tracking-[0.2rem] font-bold hover:bg-stone-200 transition-all duration-300 inline-block shadow-2xl" href="#">Inquire</a>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-stone-950 w-full border-t border-stone-900/30">
+        <div className="flex flex-col items-center px-6 md:px-12 py-16 w-full max-w-screen-2xl mx-auto justify-center">
+          <div className="flex flex-col md:flex-row gap-10 items-center text-center">
+            <div className="flex flex-wrap justify-center gap-8">
+              <a className="text-stone-500 hover:text-stone-300 transition-colors duration-300 font-sans text-[0.75rem] uppercase tracking-[0.1rem]" href="#">Privacy Policy</a>
+              <a className="text-stone-500 hover:text-stone-300 transition-colors duration-300 font-sans text-[0.75rem] uppercase tracking-[0.1rem]" href="#">Terms of Service</a>
+              <a className="text-stone-500 hover:text-stone-300 transition-colors duration-300 font-sans text-[0.75rem] uppercase tracking-[0.1rem]" href="#">Accessibility</a>
+            </div>
+            <div className="text-stone-600 font-sans text-[0.7rem] uppercase tracking-[0.1rem]">
+               © 2026 All rights reserved.
+            </div>
+          </div>
         </div>
-      </main>
+      </footer>
+
     </div>
   );
 }
