@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
   // Always allow passage in local development without requiring a password
   if (process.env.NODE_ENV === 'development') {
     return NextResponse.next();
@@ -45,7 +45,7 @@ export function middleware(req: NextRequest) {
   });
 }
 
-// Ensure the middleware protects all standard pages, but ignores loading the internal static assets (like images)
+// Ensure the proxy protects all standard pages, but ignores loading the internal static assets (like images)
 export const config = {
   matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
 };
