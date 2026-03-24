@@ -109,7 +109,7 @@ export default function Home() {
     <div className="bg-[#0c0a09] min-h-screen text-[#e7e5e4] selection:bg-[#ece1d3] selection:text-[#453f34]">
       {/* TopNavBar */}
       <nav className="fixed top-0 w-full z-50 bg-[#0c0a09]/70 backdrop-blur-[20px]">
-        <div className="flex justify-between items-center w-full px-6 md:px-12 py-6">
+        <div className="max-w-[1440px] mx-auto flex justify-between items-center w-full px-6 md:px-12 py-6">
           <div className="text-xl font-bold tracking-widest text-[#f5f5f4] font-serif uppercase">WHITE TAIL</div>
           <div className="hidden md:flex items-center space-x-10">
             {navLinks.map((link) => (
@@ -134,30 +134,32 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative w-full overflow-hidden h-[80vh]" id="property">
-        <Image 
-          className="absolute inset-0 w-full h-full object-cover" 
-          alt="Cinematic shot of a spring-fed pond at the Austin rural estate" 
-          src="https://lh3.googleusercontent.com/aida/ADBb0uiLomJ4AvBNEgqUCmHAQWKhz1I85cp9AiXjbTyZP5vVeJ1wg-FQBmSQ3_pWYcUCbr8ypAFTY8GY5OFiDjeHV6X805Z-upArh7iYUakwmMHDgKbojImVkr4Hs-bemSQADZebb3TYptQ27fCKXGiZbXxuu25wI9vtgMiDp5dqZBbZQnzFtcjptlDNMpVklSEiCnGTE8LGPPJSJuI8u5BMDT6hMtapPXdYBE_kg1o1lxkdX6wGD_UWDOzDWJi3HRedKva9etQ8rOlZkxk"
-          fill
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent from-60% to-[#0c0a09]"></div>
-        <div className="absolute inset-0 flex flex-col justify-end px-6 md:px-12 pb-24 max-w-7xl mx-auto w-full">
-          <div className="max-w-3xl">
-            <span className="inline-block mb-6 text-[#a8a29e] font-sans text-[0.75rem] uppercase tracking-[0.3rem]">East of Austin, Texas</span>
-            <h1 className="text-5xl md:text-8xl font-serif font-bold text-[#f5f5f4] leading-[1.1] mb-8 tracking-tight">
-              35 Acres of <br />Unfiltered Silence.
-            </h1>
-            <div className="flex flex-col md:flex-row md:items-center gap-8 text-[#d6d3d1]">
-              <p className="text-lg md:text-xl font-light leading-relaxed max-w-xl">
-                A sanctuary where the rolling topography of the Texas Hill Country meets the modern precision of architectural design.
-              </p>
-              <div className="flex items-center gap-4 group cursor-pointer">
-                <div className="w-12 h-12 rounded-full border border-[#78716c] flex flex-shrink-0 items-center justify-center group-hover:bg-[#f5f5f4] group-hover:text-[#1c1917] transition-all duration-500">
-                  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M320-200v-560l440 280-440 280Z"/></svg>
+      <section className="relative w-full overflow-hidden h-[700px] bg-[#0c0a09]" id="property">
+        <div className="max-w-[1440px] mx-auto h-full relative overflow-hidden">
+          <Image 
+            className="absolute inset-0 w-full h-full object-cover" 
+            alt="Cinematic shot of a spring-fed pond at the Austin rural estate" 
+            src="https://lh3.googleusercontent.com/aida/ADBb0uiLomJ4AvBNEgqUCmHAQWKhz1I85cp9AiXjbTyZP5vVeJ1wg-FQBmSQ3_pWYcUCbr8ypAFTY8GY5OFiDjeHV6X805Z-upArh7iYUakwmMHDgKbojImVkr4Hs-bemSQADZebb3TYptQ27fCKXGiZbXxuu25wI9vtgMiDp5dqZBbZQnzFtcjptlDNMpVklSEiCnGTE8LGPPJSJuI8u5BMDT6hMtapPXdYBE_kg1o1lxkdX6wGD_UWDOzDWJi3HRedKva9etQ8rOlZkxk"
+            fill
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent from-60% to-[#0c0a09]"></div>
+          <div className="absolute inset-0 flex flex-col justify-end px-6 md:px-12 pb-24 max-w-7xl mx-auto w-full">
+            <div className="max-w-3xl">
+              <span className="inline-block mb-6 text-[#a8a29e] font-sans text-[0.75rem] uppercase tracking-[0.3rem]">East of Austin, Texas</span>
+              <h1 className="text-5xl md:text-8xl font-serif font-bold text-[#f5f5f4] leading-[1.1] mb-8 tracking-tight">
+                35 Acres of <br />Unfiltered Silence.
+              </h1>
+              <div className="flex flex-col md:flex-row md:items-center gap-8 text-[#d6d3d1]">
+                <p className="text-lg md:text-xl font-light leading-relaxed max-w-xl">
+                  A sanctuary where the rolling topography of the Texas Hill Country meets the modern precision of architectural design.
+                </p>
+                <div className="flex items-center gap-4 group cursor-pointer">
+                  <div className="w-12 h-12 rounded-full border border-[#78716c] flex flex-shrink-0 items-center justify-center group-hover:bg-[#f5f5f4] group-hover:text-[#1c1917] transition-all duration-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M320-200v-560l440 280-440 280Z"/></svg>
+                  </div>
+                  <span className="uppercase text-[0.7rem] tracking-widest font-semibold">Play Property Film</span>
                 </div>
-                <span className="uppercase text-[0.7rem] tracking-widest font-semibold">Play Property Film</span>
               </div>
             </div>
           </div>
@@ -214,7 +216,7 @@ export default function Home() {
             <div 
               ref={carouselRef}
               onScroll={handleScroll}
-              className="flex overflow-x-auto snap-x snap-mandatory h-[50vh] md:h-[70vh] hide-scrollbar scroll-smooth" 
+              className="flex overflow-x-auto snap-x snap-mandatory h-[500px] md:h-[650px] hide-scrollbar scroll-smooth" 
               id="landscape-carousel"
             >
               <div className="min-w-full h-full snap-start relative">
@@ -274,7 +276,7 @@ export default function Home() {
             ref={wildlifeRef}
             onScroll={handleWildlifeScroll}
             id="wildlife-carousel"
-            className="flex md:grid grid-cols-1 md:grid-cols-12 md:grid-rows-6 gap-6 h-[50vh] md:h-[1100px] overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none hide-scrollbar scroll-smooth"
+            className="flex md:grid grid-cols-1 md:grid-cols-12 md:grid-rows-6 gap-6 h-[550px] md:h-[900px] overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none hide-scrollbar scroll-smooth"
           >
             <div className="md:col-span-8 md:row-span-4 relative group overflow-hidden snap-start h-full md:h-auto min-w-full md:min-w-0">
               <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Majestic whitetail deer buck in morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtiteZ2MsuK8rPpP9XaUGdFGnXAb7wJmBvi8oInrqtoc-h6Dh7jC41X0otKIgxYoZGHrdKO6dQRGDMniTo9HjEX2VmUONGrc_kiciwJcogDRQmQ7hpMAHgpKjCLle8k6Ga8E6DOhNztPKcY3PSM22Xefe45NHR3GkqMHLTwkwTZ206FSWg3rnEWQwuStTOmKTRtrat2sa1R2Vtc95I_V9JjEEoLgcRg2PKA8pfZ8P0-ZwmKvocAF0yCZTtlDMI2H0ArXHuw_AGui9-" />

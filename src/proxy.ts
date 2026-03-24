@@ -2,50 +2,38 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 export function proxy(req: NextRequest) {
-  // Always allow passage in local development without requiring a password
-  if (process.env.NODE_ENV === 'development') {
+  const { pathname } = req.nextUrl;
+
+  // Always permit static assets, favicon, and internal API routes
+  if (
+    pathname.startsWith('/_next') || 
+    pathname.startsWith('/api') || 
+    pathname === '/favicon.ico' ||
+    pathname.startsWith('/public')
+  ) {
     return NextResponse.next();
   }
 
-  // Get the Basic Auth header from the browser request
-  const basicAuth = req.headers.get('authorization');
-
-  // The secret credentials. 
-  // We use Vercel Environment variables, but we provide a default backup 
-  // just in case they aren't configured during the very first deployment!
-  const user = process.env.STAGING_USER || 'Guest';
-  const pwd = process.env.STAGING_PASSWORD || 'whitetail101';
-
-  // If no authorization header is found, immediately halt and drop the password box
-  if (!basicAuth) {
-    return new NextResponse('Authentication required. Please enter the password.', {
-      status: 401,
-      headers: {
-        'WWW-Authenticate': 'Basic realm="Secure Access Area"',
-      },
-    });
-  }
-
-  // Decode the base64 auth token provided by the browser
-  const authValue = basicAuth.split(' ')[1] ?? '';
-  const decodedAuth = Buffer.from(authValue, 'base64').toString('utf-8');
-  const [providedUser, providedPwd] = decodedAuth.split(':');
-
-  // Check if the typed password matches our secure variables
-  if (providedUser === user && providedPwd === pwd) {
+  // Permit the custom Auth page and its verification API
+  if (pathname === '/auth' || pathname === '/api/verify') {
     return NextResponse.next();
   }
 
-  // Invalid password provided — trap the user outside
-  return new NextResponse('Unauthorized Request', {
-    status: 401,
-    headers: {
-      'WWW-Authenticate': 'Basic realm="Secure Access Area"',
-    },
-  });
+  // Check for the authentication cookie
+  const authSession = req.cookies.get('auth_session');
+
+  // Permit passage if the cookie is present OR if we are in local development
+  if (process.env.NODE_ENV === 'development' || authSession) {
+    return NextResponse.next();
+  }
+
+  // If unauthenticated, redirect to our custom /auth page
+  const url = req.nextUrl.clone();
+  url.pathname = '/auth';
+  return NextResponse.redirect(url);
 }
 
-// Ensure the proxy protects all standard pages, but ignores loading the internal static assets (like images)
+// Protect all standard pages
 export const config = {
   matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
 };
