@@ -133,7 +133,7 @@ export default function Home() {
               </a>
             ))}
           </div>
-            <Button variant="primary" size="sm" onClick={() => setIsContactOpen(true)}>Inquire</Button>
+          <Button variant="primary" size="sm" onClick={() => setIsContactOpen(true)}>Inquire</Button>
         </div>
       </nav>
 
@@ -143,20 +143,21 @@ export default function Home() {
           <Image
             className="absolute inset-0 w-full h-full object-cover"
             alt="Cinematic shot of a spring-fed pond at the Austin rural estate"
-            src="https://lh3.googleusercontent.com/aida/ADBb0uiLomJ4AvBNEgqUCmHAQWKhz1I85cp9AiXjbTyZP5vVeJ1wg-FQBmSQ3_pWYcUCbr8ypAFTY8GY5OFiDjeHV6X805Z-upArh7iYUakwmMHDgKbojImVkr4Hs-bemSQADZebb3TYptQ27fCKXGiZbXxuu25wI9vtgMiDp5dqZBbZQnzFtcjptlDNMpVklSEiCnGTE8LGPPJSJuI8u5BMDT6hMtapPXdYBE_kg1o1lxkdX6wGD_UWDOzDWJi3HRedKva9etQ8rOlZkxk"
+            src="/images/Pond-1.JPG"
             fill
             priority
+            quality={95}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent from-60% to-[#0c0a09]"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent from-75% to-[#0c0a09]"></div>
           <div className="absolute inset-0 flex flex-col justify-end px-6 md:px-12 pb-24 max-w-7xl mx-auto w-full">
             <div className="max-w-3xl">
-              <span className="inline-block mb-6 text-[#a8a29e] font-sans text-[0.75rem] uppercase tracking-[0.3rem]">East of Austin</span>
+              <span className="inline-block mb-6 text-[#a8a29e] font-sans text-[0.75rem] uppercase tracking-[0.3rem]">East of Austin, TX</span>
               <h1 className="text-5xl md:text-7xl font-serif font-medium text-[#f5f5f4] leading-[1.1] mb-10 tracking-tighter">
-                36.25 Acres <br /> <span className="italic font-light opacity-90">near Austin, TX</span>
+                White Tail Drive<br /> <span className="italic font-light opacity-90">36.25 acres</span>
               </h1>
-              <div className="flex flex-col md:flex-row md:items-center gap-10 text-[#d6d3d1]">
-                <h2 className="text-xl md:text-2xl font-light leading-relaxed max-w-2xl opacity-80">
-                  A natural canvas of raw, rural land, with diverse topography and abundant wildlife in Cedar Creek, TX.
+              <div className="flex flex-col md:flex-row md:items-center gap-10 text-stone-100">
+                <h2 className="text-xl md:text-2xl font-normal leading-relaxed max-w-2xl">
+                  A natural canvas of raw, rural land, with diverse topography and abundant wildlife.
                 </h2>
                 <div className="flex items-center gap-4 group cursor-pointer">
                   <div className="w-12 h-12 rounded-full border border-[#78716c] flex flex-shrink-0 items-center justify-center group-hover:bg-[#f5f5f4] group-hover:text-[#1c1917] transition-all duration-500">
@@ -174,15 +175,15 @@ export default function Home() {
       <section className="py-32 px-6 md:px-12 bg-stone-950">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 md:gap-32 items-start">
           <div className="w-full md:w-1/3">
-            <SectionHeader 
-              label="The Property" 
-              title="A natural sanctuary. The property is the dominant estate, accessed at the end of a private road."
+            <SectionHeader
+              label="The Property"
+              title="The parcel is the dominant estate, accessed at the end of a private road."
               titleClassName="italic !text-3xl"
             />
           </div>
           <div className="w-full md:w-2/3">
             <p className="section-copy">
-              Situated just 14 miles from Austin-Bergstrom International Airport, and only 19 miles to the Texas Capitol. The property offers a rare balance between accessibility and privacy. The natural preserve allows the beauty of the Post Oaks and Cedar Elms to touch the sky.
+              Situated just 14 miles from Austin-Bergstrom International Airport, and only 19 miles from the Texas Capitol. The property offers a rare balance of accessibility and privacy. The natural preserve allows mature trees to touch the sky.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-12">
               <PropertyStat value="36.25" label="Total Acres" />
@@ -199,9 +200,9 @@ export default function Home() {
           <div className="flex justify-between items-end border-stone-900/50 mb-12">
             <div>
               <h2 className="text-4xl md:text-5xl font-serif text-stone-100">Landscape</h2>
-              <p className="text-stone-500 font-sans text-[0.7rem] uppercase tracking-[0.3rem] mt-4">The Texas Hill Country</p>
+              <p className="text-stone-500 font-sans text-[0.7rem] uppercase tracking-[0.3rem] mt-4">Environment</p>
               <p className="text-stone-400 text-lg font-light leading-relaxed mb-10 mt-8 max-w-3xl">
-                The Texas Hill Country unfolds in its purest form across these 35 acres. From the ancient Post Oaks that anchor the horizon to the crystalline waters of the spring-fed pond, the land has been meticulously preserved to showcase the raw beauty of Central Texas.
+                A natural sanctuary. From pond, to pasture, to wooded thicket, the property is home to diverse elevations and natural landscapes. It is also host to a grand canopy of mature trees where post oaks touch the sky, cedar elms cast dappled shade, and Texas mesquites endure in the sun.
               </p>
             </div>
           </div>
@@ -251,13 +252,13 @@ export default function Home() {
         <div className="max-w-[1400px] mx-auto">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
             <div className="max-w-2xl">
-              <SectionHeader 
-                label="The Environment" 
-                title="Wildlife Gallery"
+              <SectionHeader
+                label="Ecology"
+                title="Wildlife"
                 titleClassName="!mb-0"
               />
               <p className="section-copy">
-                This land isn't just ours; it's a thriving sanctuary for those who have called these hills home for centuries. We believe in an architecture of co-existence, where modern life yields to the natural rhythms of the local fauna.
+                Adjacent to hundreds of acres of neighboring ranches, the property is a haven for Texas wildlife. White-tailed deer, turkey, coyote, hogs, bobcat, fox, squirrel, raccoon, rabbit, various birds and other native animals frequently roam the grounds.
               </p>
             </div>
             <div className="flex items-center gap-6">
@@ -318,27 +319,27 @@ export default function Home() {
               <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Graceful whitetail deer in a sun-dappled meadow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtiteZ2MsuK8rPpP9XaUGdFGnXAb7wJmBvi8oInrqtoc-h6Dh7jC41X0otKIgxYoZGHrdKO6dQRGDMniTo9HjEX2VmUONGrc_kiciwJcogDRQmQ7hpMAHgpKjCLle8k6Ga8E6DOhNztPKcY3PSM22Xefe45NHR3GkqMHLTwkwTZ206FSWg3rnEWQwuStTOmKTRtrat2sa1R2Vtc95I_V9JjEEoLgcRg2PKA8pfZ8P0-ZwmKvocAF0yCZTtlDMI2H0ArXHuw_AGui9-" />
             </div>
             <div className="order-1 md:order-2">
-              <SectionHeader 
-                label="Wildlife & Ecology" 
-                title="Ag Exemption"
+              <SectionHeader
+                label="Agricultural & Wildlife"
+                title="Ag Valuation"
                 className="!mb-0"
               />
               <p className="section-copy">
-                The property is under a wildlife management exemption, fostering a thriving habitat for native species. From the majestic Whitetail deer to the Great Blue Herons that frequent the pond, the estate is a living, breathing canvas.
+                The property has a current Ag valuation with Bastrop County. Native grasses and local biotic factors foster a thriving habitat for cute creatures and predators alike.
               </p>
               <ul className="space-y-6">
                 <li className="flex items-start gap-4">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-stone-500 mt-1 flex-shrink-0"><path d="M11 20A7 7 0 0 1 9 9V2a7 7 0 0 1 12 12v5h-5a7 7 0 0 1-5-5Z" /><path d="m11 20 6-6" /></svg>
                   <div>
-                    <h4 className="text-stone-200 font-semibold text-sm uppercase tracking-wider">Habitat Restoration</h4>
-                    <p className="text-stone-500 text-sm">Ongoing native grass prairie re-establishment.</p>
+                    <h4 className="text-stone-200 font-semibold text-sm uppercase tracking-wider">Post Oak Savannah</h4>
+                    <p className="text-stone-500 text-sm">A mosaic of scattered post oak woodlands, native grasslands, near the Lost Pines region promoting preservation and restoration.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-stone-500 mt-1 flex-shrink-0"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z" /></svg>
                   <div>
-                    <h4 className="text-stone-200 font-semibold text-sm uppercase tracking-wider">Hydrology</h4>
-                    <p className="text-stone-500 text-sm">Natural aquifer filtration systems.</p>
+                    <h4 className="text-stone-200 font-semibold text-sm uppercase tracking-wider">Carrizo-Wilcox Aquifer</h4>
+                    <p className="text-stone-500 text-sm">The property sits atop this groundwater system managed by the Lost Pines Groundwater Conservation District.</p>
                   </div>
                 </li>
               </ul>
@@ -351,31 +352,31 @@ export default function Home() {
       <section className="py-32 bg-[#0c0a09] relative overflow-hidden bg-gradient-to-br from-[#00A3FF]/15 to-transparent to-50% border-y border-stone-900/50" id="tech">
         <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="relative z-10">
-            <SectionHeader 
-              label="Economic Epicenter" 
-              title="The East Austin Tech Explosion."
+            <SectionHeader
+              label="Economic Epicenter"
+              title="East Austin Tech Expansion."
               labelClassName="!text-[#00A3FF] !tracking-[0.4rem] !font-bold"
-              titleClassName="!text-4xl md:!text-6xl !font-bold"
+              titleClassName="!text-4xl md:!text-6xl !font-medium"
             />
             <p className="section-copy !max-w-xl">
-              Positioned at the nexus of global innovation, the estate offers unparalleled proximity to the giants of the future. The transformation of East Austin, Cedar Creek, and Bastrop County is redefining the Texas economy.
+              The estate offers excellent proximity to the headquarters or central operations for products and industries of the future.
             </p>
             <div className="grid grid-cols-2 gap-8 border-l border-stone-800 pl-8">
               <div>
-                <div className="text-stone-500 font-sans text-[0.6rem] uppercase tracking-widest mb-1">Corporate Proximity</div>
-                <div className="text-stone-100 font-bold text-lg">Tesla GigaFactory</div>
+                <div className="text-stone-500 font-sans text-[0.6rem] uppercase tracking-widest mb-1">Automotive & AI</div>
+                <div className="text-stone-100 font-medium text-lg">Tesla GigaFactory</div>
               </div>
               <div>
-                <div className="text-stone-500 font-sans text-[0.6rem] uppercase tracking-widest mb-1">Aerospace Hub</div>
-                <div className="text-stone-100 font-bold text-lg">SpaceX / X</div>
+                <div className="text-stone-500 font-sans text-[0.6rem] uppercase tracking-widest mb-1">Aerospace</div>
+                <div className="text-stone-100 font-medium text-lg">SpaceX / Starlink</div>
               </div>
               <div>
                 <div className="text-stone-500 font-sans text-[0.6rem] uppercase tracking-widest mb-1">AI Research</div>
-                <div className="text-stone-100 font-bold text-lg">xAI Campus</div>
+                <div className="text-stone-100 font-medium text-lg">xAI Campus</div>
               </div>
               <div>
                 <div className="text-stone-500 font-sans text-[0.6rem] uppercase tracking-widest mb-1">Infrastructure</div>
-                <div className="text-stone-100 font-bold text-lg">Bastrop Tech Corridor</div>
+                <div className="text-stone-100 font-medium text-lg">Bastrop Tech Corridor</div>
               </div>
             </div>
           </div>
@@ -408,8 +409,8 @@ export default function Home() {
       <section className="py-32 px-6 md:px-12 bg-stone-950" id="attractions">
         <div className="max-w-[1400px] mx-auto">
           <div className="text-center mb-20">
-            <SectionHeader 
-              label="Explore Your Neighborhood" 
+            <SectionHeader
+              label="Explore Your Neighborhood"
               title="Privacy & Proximity"
               labelClassName="!tracking-[0.3rem]"
               titleClassName="!text-4xl md:!text-5xl !mb-6"
@@ -465,8 +466,8 @@ export default function Home() {
       {/* Map/CTA Section */}
       <section className="py-32 px-6 md:px-12 bg-stone-950 flex flex-col items-center">
         <div className="max-w-4xl text-center">
-          <SectionHeader 
-            label="Private Tour" 
+          <SectionHeader
+            label="Private Tour"
             title="Witness the stillness."
             className="text-center"
             labelClassName="!mb-12"
