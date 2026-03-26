@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { WildlifeCard } from "@/components/WildlifeCard";
 import { SectionHeader } from "@/components/SectionHeader";
 import { PropertyStat } from "@/components/PropertyStat";
+import { ContactOverlay } from "@/components/ContactOverlay";
 
 const navLinks = [
   { id: 'property', label: 'Property' },
@@ -19,6 +20,7 @@ const navLinks = [
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState('property');
+  const [isContactOpen, setIsContactOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -131,7 +133,7 @@ export default function Home() {
               </a>
             ))}
           </div>
-            <a className={buttonVariants({ variant: "primary", size: "sm" })} href="#">Inquire</a>
+            <Button variant="primary" size="sm" onClick={() => setIsContactOpen(true)}>Inquire</Button>
         </div>
       </nav>
 
@@ -474,7 +476,7 @@ export default function Home() {
             We invite qualified buyers to experience the property in person. Guided tours available by appointment only.
           </p>
           <div className="flex flex-col md:flex-row gap-6 justify-center">
-            <a className={cn(buttonVariants({ variant: "primary", size: "lg" }), "shadow-2xl")} href="#">Inquire</a>
+            <Button variant="primary" size="lg" className="shadow-2xl" onClick={() => setIsContactOpen(true)}>Inquire</Button>
           </div>
         </div>
       </section>
@@ -495,6 +497,7 @@ export default function Home() {
         </div>
       </footer>
 
+      <ContactOverlay isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
     </div>
   );
 }
