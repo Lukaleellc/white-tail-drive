@@ -8,6 +8,7 @@ import { WildlifeCard } from "@/components/WildlifeCard";
 import { SectionHeader } from "@/components/SectionHeader";
 import { PropertyStat } from "@/components/PropertyStat";
 import { ContactOverlay } from "@/components/ContactOverlay";
+import { LandscapeGalleryModal } from "@/components/LandscapeGalleryModal";
 
 const navLinks = [
   { id: 'property', label: 'Property' },
@@ -21,6 +22,7 @@ const navLinks = [
 export default function Home() {
   const [activeSection, setActiveSection] = useState('property');
   const [isContactOpen, setIsContactOpen] = useState(false);
+  const [isLandscapeModalOpen, setIsLandscapeModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -177,7 +179,7 @@ export default function Home() {
           <div className="w-full md:w-1/3">
             <SectionHeader
               label="The Property"
-              title="The parcel is the dominant estate, accessed at the end of a private road."
+              title="The dominant estate is accessed at the end of a private road."
               titleClassName="italic !text-3xl"
             />
           </div>
@@ -215,7 +217,7 @@ export default function Home() {
               id="landscape-carousel"
             >
               <div className="min-w-full h-full snap-start relative">
-                <Image className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-1000" alt="Wide landscape of rolling hills and post oak trees" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcGBLpAI_PpcjXp2u7uYXGvSCEVxeUCS2Saw-rpPy9ejUu2h5StjPUNucCCt9UmRbWj3abG85gK-7MNDQDYXlsRFPH1orZWzJVKFutPShlhfaHbi5UlpAPdIkFyLAWy0AIpAXqhndVQ8Ov379VYw4CTjFlIU7WWrr05NCgdSs1sgtLmO5RUNq_6I7n9j3wgblZSBswbvUXh7pForm8Zfn4Jd3ZzrkqqEm9bmSqfjpf5G28mrlTShqIhJG85NDCIPmDMGDSNFnVfftp" fill />
+                <Image className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-1000" alt="Wide landscape of rolling hills and post oak trees" src="/images/gallery-landscape/Pond-Eagle-Oaks.jpg" fill />
               </div>
               <div className="min-w-full h-full snap-start relative">
                 <Image className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-1000" alt="Lush cedar elm grove in morning mist" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZYWoXtNCYF1v-VeKxO-n28w2VmILsz3wk-A3XsIt4Z3_eiH3iKHeflvX87XSqhvm0bNx3agWGDg53QgyV6Q1lHcNirzQsS_Q_5Lc29wTNtH98v1okkaETJAUqthzkBKrktjlCbYRmmAuRyGPvHre3VtSQAWDQja5cRol2zIv48FYepG_P9RH_7oelFK4sxYKNe9sjjUTIlIAltC5TldLKq230e3wnpcS-lplWv3Ps46uiQ_ZLzlgeW6tBttKg3fEJadj3yEmzTHV_" fill />
@@ -242,6 +244,11 @@ export default function Home() {
               <button className="w-14 h-14 rounded-full border border-stone-800 flex items-center justify-center text-stone-400 hover:border-stone-100 hover:text-stone-100 transition-all duration-300" onClick={scrollNext}>
                 <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" /></svg>
               </button>
+            </div>
+            <div className="mt-4">
+              <Button variant="outline" size="md" onClick={() => setIsLandscapeModalOpen(true)}>
+                Full Landscape Gallery
+              </Button>
             </div>
           </div>
         </div>
@@ -277,19 +284,19 @@ export default function Home() {
             className="flex md:grid grid-cols-1 md:grid-cols-12 md:grid-rows-6 gap-6 h-[550px] md:h-[900px] overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none hide-scrollbar scroll-smooth"
           >
             <div className="md:col-span-8 md:row-span-4 relative group overflow-hidden snap-start h-full md:h-auto min-w-full md:min-w-0">
-              <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Majestic whitetail deer buck in morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtiteZ2MsuK8rPpP9XaUGdFGnXAb7wJmBvi8oInrqtoc-h6Dh7jC41X0otKIgxYoZGHrdKO6dQRGDMniTo9HjEX2VmUONGrc_kiciwJcogDRQmQ7hpMAHgpKjCLle8k6Ga8E6DOhNztPKcY3PSM22Xefe45NHR3GkqMHLTwkwTZ206FSWg3rnEWQwuStTOmKTRtrat2sa1R2Vtc95I_V9JjEEoLgcRg2PKA8pfZ8P0-ZwmKvocAF0yCZTtlDMI2H0ArXHuw_AGui9-" />
+              <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Buck" src="/images/gallery-wildlife/Buck-01.jpg" />
             </div>
             <div className="md:col-span-4 md:row-span-4 relative group overflow-hidden snap-start h-full md:h-auto min-w-full md:min-w-0">
-              <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105 grayscale hover:grayscale-0" alt="A Great Blue Heron by the spring-fed pond" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUDlRhoxNHOFWj4BVfqvcMw2r61Xv9IdFBpzvqDirvOgbxhRUgGxKJVz1o2ae0qv8hC3GLRnnUuV6_frrRNdK0YjrwxWGGCXeVljwWmGe52foj1nUY2LgFHIZJAty9xkUmdXZhIPO4dvnqVm_MKCzv2UrzoKSr0mFn5iI_b-aYp7GLP-kSVHNCb0lRIIfls6WPPYIvVjj7o_12rXTl2DBz6J8DX8EmEG-VEObQS_zkVvXGSUOXIjC9iZPsNPpEhUAj69SE_FLc9z2x" />
+              <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105 grayscale hover:grayscale-0" alt="Hawk" src="/images/gallery-wildlife/Hawk-01.jpg" />
             </div>
             <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start h-full md:h-auto min-w-full md:min-w-0">
-              <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Wild turkeys roaming through the tall prairie grass" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBVFnTBE9puAv1eCAFndw46ulx9fWOJB4ICF-otm4kwgWxYahTt2osUUfsXa7mg4pvZv1zOw2bLlpmrDE2a3Gvxz7_HuBW0yRm13N_FOgM6Jy-mtfL-t6dGhF186kHrnR8qCJ4JcuYgxFnt1kU7BMaLMn7iQs1fGqDvCVPVY_EewznSEC0fCXd5yS33-C__IAJvhrLQx44nYX4OaRUeUAUwNmowD4K5tn9AJh5rKNmRyaGt8xovCNVpmUoPa1LK53Qe_EtewvVlz3m" />
+              <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Buck" src="/images/gallery-wildlife/Hawk-03.jpg" />
             </div>
             <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start h-full md:h-auto min-w-full md:min-w-0">
-              <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Golden hour light highlighting native prairie grasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDcGBLpAI_PpcjXp2u7uYXGvSCEVxeUCS2Saw-rpPy9ejUu2h5StjPUNucCCt9UmRbWj3abG85gK-7MNDQDYXlsRFPH1orZWzJVKFutPShlhfaHbi5UlpAPdIkFyLAWy0AIpAXqhndVQ8Ov379VYw4CTjFlIU7WWrr05NCgdSs1sgtLmO5RUNq_6I7n9j3wgblZSBswbvUXh7pForm8Zfn4Jd3ZzrkqqEm9bmSqfjpf5G28mrlTShqIhJG85NDCIPmDMGDSNFnVfftp" />
+              <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Buck" src="/images/gallery-wildlife/Bird-01.jpg" />
             </div>
             <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start h-full md:h-auto min-w-full md:min-w-0">
-              <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105 grayscale hover:grayscale-0" alt="Lush cedar elm grove placeholder" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZYWoXtNCYF1v-VeKxO-n28w2VmILsz3wk-A3XsIt4Z3_eiH3iKHeflvX87XSqhvm0bNx3agWGDg53QgyV6Q1lHcNirzQsS_Q_5Lc29wTNtH98v1okkaETJAUqthzkBKrktjlCbYRmmAuRyGPvHre3VtSQAWDQja5cRol2zIv48FYepG_P9RH_7oelFK4sxYKNe9sjjUTIlIAltC5TldLKq230e3wnpcS-lplWv3Ps46uiQ_ZLzlgeW6tBttKg3fEJadj3yEmzTHV_" />
+              <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105 grayscale hover:grayscale-0" alt="Buck" src="/images/gallery-wildlife/Spider-01.jpg" />
             </div>
           </div>
 
@@ -499,6 +506,7 @@ export default function Home() {
       </footer>
 
       <ContactOverlay isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
+      <LandscapeGalleryModal isOpen={isLandscapeModalOpen} onClose={() => setIsLandscapeModalOpen(false)} />
     </div>
   );
 }
