@@ -212,13 +212,16 @@ export default function Home() {
       </section>
 
       {/* Landscape Gallery Section */}
-      <section className="bg-stone-950 py-12" id="landscape">
-        <div className="max-w-7xl mx-auto px-6 md:px-12">
-          <div className="flex justify-between items-end border-stone-900/50 mb-12">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-serif text-stone-100">Landscape</h2>
-              <p className="text-stone-500 font-sans text-[0.7rem] uppercase tracking-[0.3rem] mt-4">Environment</p>
-              <p className="text-stone-400 text-lg font-light leading-relaxed mb-10 mt-8 max-w-3xl">
+      <section className="bg-stone-950 py-32 overflow-hidden" id="landscape">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
+            <div className="max-w-2xl">
+              <SectionHeader 
+                label="Environment" 
+                title="Landscape" 
+                titleClassName="!mb-0"
+              />
+              <p className="section-copy">
                 A natural sanctuary. From pond, to pasture, to wooded thicket, the property is home to diverse elevations and natural landscapes. It is also host to a grand canopy of mature trees where post oaks touch the sky, cedar elms cast dappled shade, and Texas mesquites endure in the sun.
               </p>
             </div>
@@ -284,10 +287,6 @@ export default function Home() {
               </p>
             </div>
             <div className="flex items-center gap-6">
-              <button className="group flex items-center gap-3 text-[#00A3FF] hover:text-white transition-colors duration-300">
-                <span className="text-[0.75rem] uppercase tracking-[0.2rem] font-bold">Explore Habitat</span>
-                <span className="w-12 h-px bg-[#00A3FF] group-hover:w-16 transition-all duration-500"></span>
-              </button>
             </div>
           </div>
 
@@ -307,13 +306,13 @@ export default function Home() {
                 <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Hawk" src="/images/gallery-wildlife/Hawk-01.jpg" />
               </div>
               <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
-                <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Hawk soar" src="/images/gallery-wildlife/Hawk-03.jpg" />
+                <Image fill className="object-cover object-top transition-transform duration-1000 group-hover:scale-105" alt="Hawk soar" src="/images/gallery-wildlife/Hawk-03.jpg" />
               </div>
               <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
-                <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Bird" src="/images/gallery-wildlife/Bird-01.jpg" />
+                <Image fill className="object-cover object-top transition-transform duration-1000 group-hover:scale-105" alt="Bird" src="/images/gallery-wildlife/Bird-01.jpg" />
               </div>
               <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
-                <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Spider" src="/images/gallery-wildlife/Spider-01.jpg" />
+                <Image fill className="object-cover object-top transition-transform duration-1000 group-hover:scale-105" alt="Spider" src="/images/gallery-wildlife/Spider-01.jpg" />
               </div>
             </div>
 
@@ -326,18 +325,18 @@ export default function Home() {
                 <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Hawk duplicate" src="/images/gallery-wildlife/Hawk-01.jpg" />
               </div>
               <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
-                <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Hawk soar duplicate" src="/images/gallery-wildlife/Hawk-03.jpg" />
+                <Image fill className="object-cover object-top transition-transform duration-1000 group-hover:scale-105" alt="Hawk soar duplicate" src="/images/gallery-wildlife/Hawk-03.jpg" />
               </div>
               <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
-                <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Bird duplicate" src="/images/gallery-wildlife/Bird-01.jpg" />
+                <Image fill className="object-cover object-top transition-transform duration-1000 group-hover:scale-105" alt="Bird duplicate" src="/images/gallery-wildlife/Bird-01.jpg" />
               </div>
               <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
-                <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Spider duplicate" src="/images/gallery-wildlife/Spider-01.jpg" />
+                <Image fill className="object-cover object-top transition-transform duration-1000 group-hover:scale-105" alt="Spider duplicate" src="/images/gallery-wildlife/Spider-01.jpg" />
               </div>
             </div>
 
-             {/* Grid Page 3 */}
-             <div className="contents md:grid md:grid-cols-12 md:grid-rows-6 md:gap-6 md:min-w-full md:snap-center">
+            {/* Grid Page 3 */}
+            <div className="contents md:grid md:grid-cols-12 md:grid-rows-6 md:gap-6 md:min-w-full md:snap-center">
               <div className="md:col-span-8 md:row-span-4 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
                 <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Buck duplicate" src="/images/gallery-wildlife/Buck-01.jpg" />
               </div>
@@ -345,13 +344,13 @@ export default function Home() {
                 <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Hawk duplicate" src="/images/gallery-wildlife/Hawk-01.jpg" />
               </div>
               <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
-                <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Hawk soar duplicate" src="/images/gallery-wildlife/Hawk-03.jpg" />
+                <Image fill className="object-cover object-top transition-transform duration-1000 group-hover:scale-105" alt="Hawk soar duplicate" src="/images/gallery-wildlife/Hawk-03.jpg" />
               </div>
               <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
-                <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Bird duplicate" src="/images/gallery-wildlife/Bird-01.jpg" />
+                <Image fill className="object-cover object-top transition-transform duration-1000 group-hover:scale-105" alt="Bird duplicate" src="/images/gallery-wildlife/Bird-01.jpg" />
               </div>
               <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
-                <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Spider duplicate" src="/images/gallery-wildlife/Spider-01.jpg" />
+                <Image fill className="object-cover object-top transition-transform duration-1000 group-hover:scale-105" alt="Spider duplicate" src="/images/gallery-wildlife/Spider-01.jpg" />
               </div>
             </div>
           </div>
@@ -421,12 +420,10 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="relative z-10">
             <SectionHeader
-              label="Economic Epicenter"
+              label="Strategic"
               title="East Austin Tech Expansion."
-              labelClassName="!text-[#00A3FF] !tracking-[0.4rem] !font-bold"
-              titleClassName="!text-4xl md:!text-6xl !font-medium"
             />
-            <p className="section-copy !max-w-xl">
+            <p className="section-copy max-w-xl">
               The estate offers excellent proximity to the headquarters or central operations for products and industries of the future.
             </p>
             <div className="grid grid-cols-2 gap-8 border-l border-stone-800 pl-8">
@@ -459,7 +456,7 @@ export default function Home() {
                 fill
                 className="object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-1000"
                 alt="Modern high-tech industrial architecture"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgkMT9M3MvqG5yEPH9HdNHm3XhuLEhnmRKTMj1JyBvJQyPdeEG9dgbqOLQwTaoklq2tQKncPgDa1bjeuP1tjDCVAq7KnwM5h0QTgq-wsRTfk4HGP4IN4oppiFZCIXccb_pFp36TjFhsTy-D-JIPBf05aiicwVvCtd93g2Ykz11fQBmilBOoITScQVgK-eusZkZhEdg6_3E-LOYgUWIcA3w7E8wQls6rEY0QP8M1GdAQcLJ6CdM1dy6HEoSYRVLg2HAkRD4K_fMYXEr"
+                src="/images/Tesla-GigaTexas.png"
               />
 
               {/* Rocket Icon Overlay */}
@@ -478,12 +475,10 @@ export default function Home() {
         <div className="max-w-[1400px] mx-auto">
           <div className="text-center mb-20">
             <SectionHeader
-              label="Explore Your Neighborhood"
+              label="Location"
               title="Privacy & Proximity"
-              labelClassName="!tracking-[0.3rem]"
-              titleClassName="!text-4xl md:!text-5xl !mb-6"
             />
-            <p className="section-copy !max-w-2xl !mx-auto">
+            <p className="section-copy max-w-2xl mx-auto">
               While the silence here is absolute, the energy of Central Texas is always within reach. A world of vibrant experiences awaits within a 20-minute drive.
             </p>
           </div>
@@ -538,10 +533,8 @@ export default function Home() {
             label="Private Tour"
             title="Witness the stillness."
             className="text-center"
-            labelClassName="!mb-12"
-            titleClassName="!text-4xl md:!text-6xl !mb-12"
           />
-          <p className="section-copy !text-xl !mb-16">
+          <p className="section-copy max-w-2xl mx-auto">
             We invite qualified buyers to experience the property in person. Guided tours available by appointment only.
           </p>
           <div className="flex flex-col md:flex-row gap-6 justify-center">
