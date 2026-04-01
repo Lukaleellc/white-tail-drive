@@ -2,20 +2,20 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { landscapeGallery } from '../data/galleries';
+import { wildlifeGallery } from '../data/galleries';
 import { getGalleryImages } from '@/actions/gallery';
 
-interface LandscapeGalleryModalProps {
+interface WildlifeGalleryModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-export function LandscapeGalleryModal({ isOpen, onClose }: LandscapeGalleryModalProps) {
-  const [images, setImages] = useState(landscapeGallery);
+export function WildlifeGalleryModal({ isOpen, onClose }: WildlifeGalleryModalProps) {
+  const [images, setImages] = useState(wildlifeGallery);
 
   useEffect(() => {
     // Invisibly fetch the massive hybrid list on mount
-    getGalleryImages('gallery-landscape', landscapeGallery).then(setImages);
+    getGalleryImages('gallery-wildlife', wildlifeGallery).then(setImages);
   }, []);
 
   // Lock body scroll when modal is open
@@ -58,10 +58,10 @@ export function LandscapeGalleryModal({ isOpen, onClose }: LandscapeGalleryModal
         <div className="max-w-[1600px] mx-auto">
           {/* Gallery Header */}
           <div className="mb-16 md:mb-24 text-center">
-            <h2 className="text-4xl md:text-5xl font-serif text-stone-100 mb-4 tracking-tight">The Landscape</h2>
-            <div className="w-12 h-px bg-[#00A3FF] mx-auto"></div>
+            <h2 className="text-4xl md:text-5xl font-serif text-stone-100 mb-4 tracking-tight">The Wildlife</h2>
+            <div className="w-12 h-px bg-[#FFB800] mx-auto"></div>
             <p className="mt-6 text-stone-400 font-light tracking-wide max-w-2xl mx-auto">
-              A comprehensive view of the 36.25 acre property, from the spring-fed pond to the expansive post oak canopy.
+              A vibrant ecosystem, supporting native deer, hawks, pollinators, and diverse fauna.
             </p>
           </div>
 

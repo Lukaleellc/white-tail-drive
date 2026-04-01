@@ -9,6 +9,8 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { PropertyStat } from "@/components/PropertyStat";
 import { ContactOverlay } from "@/components/ContactOverlay";
 import { LandscapeGalleryModal } from "@/components/LandscapeGalleryModal";
+import { WildlifeGalleryModal } from "@/components/WildlifeGalleryModal";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const navLinks = [
   { id: 'property', label: 'Property' },
@@ -23,6 +25,7 @@ export default function Home() {
   const [activeSection, setActiveSection] = useState('property');
   const [isContactOpen, setIsContactOpen] = useState(false);
   const [isLandscapeModalOpen, setIsLandscapeModalOpen] = useState(false);
+  const [isWildlifeModalOpen, setIsWildlifeModalOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -84,7 +87,19 @@ export default function Home() {
 
   const wildlifeRef = useRef<HTMLDivElement>(null);
   const [wildlifeSlide, setWildlifeSlide] = useState(1);
-  const wildlifeTotal = 5;
+  const [wildlifeTotal, setWildlifeTotal] = useState(3);
+
+  useEffect(() => {
+    // Dynamic total based on scrollWidth allows mobile 15 items vs desktop 3 grids
+    const calculateTotal = () => {
+      if (wildlifeRef.current) {
+        setWildlifeTotal(Math.round(wildlifeRef.current.scrollWidth / wildlifeRef.current.offsetWidth));
+      }
+    };
+    calculateTotal();
+    window.addEventListener('resize', calculateTotal);
+    return () => window.removeEventListener('resize', calculateTotal);
+  }, []);
 
   const handleWildlifeScroll = () => {
     if (!wildlifeRef.current) return;
@@ -185,7 +200,7 @@ export default function Home() {
           </div>
           <div className="w-full md:w-2/3">
             <p className="section-copy">
-              Situated just 14 miles from Austin-Bergstrom International Airport, and only 19 miles from the Texas Capitol. The property offers a rare balance of accessibility and privacy. The natural preserve allows mature trees to touch the sky.
+              Situated just 14 miles from Austin-Bergstrom International Airport, and only 19 miles from the Texas Capitol. The property offers a rare balance of privacy and accessibility. The natural preserve allows mature trees to touch the sky.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-12">
               <PropertyStat value="36.25" label="Total Acres" />
@@ -220,13 +235,13 @@ export default function Home() {
                 <Image className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-1000" alt="Wide landscape of rolling hills and post oak trees" src="/images/gallery-landscape/Pond-Eagle-Oaks.jpg" fill />
               </div>
               <div className="min-w-full h-full snap-start relative">
-                <Image className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-1000" alt="Lush cedar elm grove in morning mist" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZYWoXtNCYF1v-VeKxO-n28w2VmILsz3wk-A3XsIt4Z3_eiH3iKHeflvX87XSqhvm0bNx3agWGDg53QgyV6Q1lHcNirzQsS_Q_5Lc29wTNtH98v1okkaETJAUqthzkBKrktjlCbYRmmAuRyGPvHre3VtSQAWDQja5cRol2zIv48FYepG_P9RH_7oelFK4sxYKNe9sjjUTIlIAltC5TldLKq230e3wnpcS-lplWv3Ps46uiQ_ZLzlgeW6tBttKg3fEJadj3yEmzTHV_" fill />
+                <Image className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-1000" alt="Lush cedar elm grove in morning mist" src="/images/gallery-landscape/Doe-Meadow-01.jpg" fill />
               </div>
               <div className="min-w-full h-full snap-start relative">
-                <Image className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-1000" alt="Golden hour light through prairie grass" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBVFnTBE9puAv1eCAFndw46ulx9fWOJB4ICF-otm4kwgWxYahTt2osUUfsXa7mg4pvZv1zOw2bLlpmrDE2a3Gvxz7_HuBW0yRm13N_FOgM6Jy-mtfL-t6dGhF186kHrnR8qCJ4JcuYgxFnt1kU7BMaLMn7iQs1fGqDvCVPVY_EewznSEC0fCXd5yS33-C__IAJvhrLQx44nYX4OaRUeUAUwNmowD4K5tn9AJh5rKNmRyaGt8xovCNVpmUoPa1LK53Qe_EtewvVlz3m" fill />
+                <Image className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-1000" alt="Golden hour light through prairie grass" src="/images/gallery-landscape/Prickly-Pear-Pass-01.jpg" fill />
               </div>
               <div className="min-w-full h-full snap-start relative">
-                <Image className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-1000" alt="Close up of a pond at dawn with soft reflections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUDlRhoxNHOFWj4BVfqvcMw2r61Xv9IdFBpzvqDirvOgbxhRUgGxKJVz1o2ae0qv8hC3GLRnnUuV6_frrRNdK0YjrwxWGGCXeVljwWmGe52foj1nUY2LgFHIZJAty9xkUmdXZhIPO4dvnqVm_MKCzv2UrzoKSr0mFn5iI_b-aYp7GLP-kSVHNCb0lRIIfls6WPPYIvVjj7o_12rXTl2DBz6J8DX8EmEG-VEObQS_zkVvXGSUOXIjC9iZPsNPpEhUAj69SE_FLc9z2x" fill />
+                <Image className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-1000" alt="Close up of a pond at dawn with soft reflections" src="/images/gallery-landscape/Prickly-Pear-Pass-04.jpg" fill />
               </div>
             </div>
           </div>
@@ -234,7 +249,7 @@ export default function Home() {
           <div className="flex flex-col items-center gap-6 mt-12">
             <div className="flex items-center gap-6">
               <button className="w-14 h-14 rounded-full border border-stone-800 flex items-center justify-center text-stone-400 hover:border-stone-100 hover:text-stone-100 transition-all duration-300" onClick={scrollPrev}>
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z" /></svg>
+                <ChevronLeft className="w-6 h-6 stroke-[1.5]" />
               </button>
               <div className="bg-stone-900/50 backdrop-blur-md px-6 py-3 rounded-full border border-stone-800/50 min-w-[120px] text-center flex justify-center">
                 <span className="text-stone-100 font-sans text-[0.75rem] uppercase tracking-[0.2rem]">
@@ -242,7 +257,7 @@ export default function Home() {
                 </span>
               </div>
               <button className="w-14 h-14 rounded-full border border-stone-800 flex items-center justify-center text-stone-400 hover:border-stone-100 hover:text-stone-100 transition-all duration-300" onClick={scrollNext}>
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" /></svg>
+                <ChevronRight className="w-6 h-6 stroke-[1.5]" />
               </button>
             </div>
             <div className="mt-4">
@@ -281,29 +296,70 @@ export default function Home() {
             ref={wildlifeRef}
             onScroll={handleWildlifeScroll}
             id="wildlife-carousel"
-            className="flex md:grid grid-cols-1 md:grid-cols-12 md:grid-rows-6 gap-6 h-[550px] md:h-[900px] overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none hide-scrollbar scroll-smooth"
+            className="flex w-full h-[550px] md:h-[900px] overflow-x-auto snap-x snap-mandatory hide-scrollbar scroll-smooth"
           >
-            <div className="md:col-span-8 md:row-span-4 relative group overflow-hidden snap-start h-full md:h-auto min-w-full md:min-w-0">
-              <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Buck" src="/images/gallery-wildlife/Buck-01.jpg" />
+            {/* Grid Page 1 */}
+            <div className="contents md:grid md:grid-cols-12 md:grid-rows-6 md:gap-6 md:min-w-full md:snap-center">
+              <div className="md:col-span-8 md:row-span-4 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
+                <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Buck" src="/images/gallery-wildlife/Buck-01.jpg" />
+              </div>
+              <div className="md:col-span-4 md:row-span-4 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
+                <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Hawk" src="/images/gallery-wildlife/Hawk-01.jpg" />
+              </div>
+              <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
+                <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Hawk soar" src="/images/gallery-wildlife/Hawk-03.jpg" />
+              </div>
+              <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
+                <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Bird" src="/images/gallery-wildlife/Bird-01.jpg" />
+              </div>
+              <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
+                <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Spider" src="/images/gallery-wildlife/Spider-01.jpg" />
+              </div>
             </div>
-            <div className="md:col-span-4 md:row-span-4 relative group overflow-hidden snap-start h-full md:h-auto min-w-full md:min-w-0">
-              <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105 grayscale hover:grayscale-0" alt="Hawk" src="/images/gallery-wildlife/Hawk-01.jpg" />
+
+            {/* Grid Page 2 */}
+            <div className="contents md:grid md:grid-cols-12 md:grid-rows-6 md:gap-6 md:min-w-full md:snap-center">
+              <div className="md:col-span-8 md:row-span-4 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
+                <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Buck duplicate" src="/images/gallery-wildlife/Buck-01.jpg" />
+              </div>
+              <div className="md:col-span-4 md:row-span-4 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
+                <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Hawk duplicate" src="/images/gallery-wildlife/Hawk-01.jpg" />
+              </div>
+              <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
+                <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Hawk soar duplicate" src="/images/gallery-wildlife/Hawk-03.jpg" />
+              </div>
+              <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
+                <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Bird duplicate" src="/images/gallery-wildlife/Bird-01.jpg" />
+              </div>
+              <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
+                <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Spider duplicate" src="/images/gallery-wildlife/Spider-01.jpg" />
+              </div>
             </div>
-            <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start h-full md:h-auto min-w-full md:min-w-0">
-              <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Buck" src="/images/gallery-wildlife/Hawk-03.jpg" />
-            </div>
-            <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start h-full md:h-auto min-w-full md:min-w-0">
-              <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Buck" src="/images/gallery-wildlife/Bird-01.jpg" />
-            </div>
-            <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start h-full md:h-auto min-w-full md:min-w-0">
-              <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105 grayscale hover:grayscale-0" alt="Buck" src="/images/gallery-wildlife/Spider-01.jpg" />
+
+             {/* Grid Page 3 */}
+             <div className="contents md:grid md:grid-cols-12 md:grid-rows-6 md:gap-6 md:min-w-full md:snap-center">
+              <div className="md:col-span-8 md:row-span-4 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
+                <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Buck duplicate" src="/images/gallery-wildlife/Buck-01.jpg" />
+              </div>
+              <div className="md:col-span-4 md:row-span-4 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
+                <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Hawk duplicate" src="/images/gallery-wildlife/Hawk-01.jpg" />
+              </div>
+              <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
+                <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Hawk soar duplicate" src="/images/gallery-wildlife/Hawk-03.jpg" />
+              </div>
+              <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
+                <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Bird duplicate" src="/images/gallery-wildlife/Bird-01.jpg" />
+              </div>
+              <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
+                <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Spider duplicate" src="/images/gallery-wildlife/Spider-01.jpg" />
+              </div>
             </div>
           </div>
 
-          <div className="flex flex-col items-center md:hidden">
+          <div className="flex flex-col items-center">
             <div className="mt-12 flex items-center gap-6">
               <button className="w-14 h-14 rounded-full border border-stone-800 flex items-center justify-center text-stone-400 hover:border-stone-100 hover:text-stone-100 transition-all duration-300" onClick={scrollWildlifePrev}>
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M400-80 0-480l400-400 71 71-329 329 329 329-71 71Z" /></svg>
+                <ChevronLeft className="w-6 h-6 stroke-[1.5]" />
               </button>
               <div className="bg-stone-900/50 backdrop-blur-md px-6 py-3 rounded-full border border-stone-800/50 min-w-[120px] text-center flex justify-center">
                 <span className="text-stone-100 font-sans text-[0.75rem] uppercase tracking-[0.2rem]">
@@ -311,8 +367,13 @@ export default function Home() {
                 </span>
               </div>
               <button className="w-14 h-14 rounded-full border border-stone-800 flex items-center justify-center text-stone-400 hover:border-stone-100 hover:text-stone-100 transition-all duration-300" onClick={scrollWildlifeNext}>
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="m321-80-71-71 329-329-329-329 71-71 400 400L321-80Z" /></svg>
+                <ChevronRight className="w-6 h-6 stroke-[1.5]" />
               </button>
+            </div>
+            <div className="mt-4">
+              <Button variant="outline" size="md" onClick={() => setIsWildlifeModalOpen(true)}>
+                Full Wildlife Gallery
+              </Button>
             </div>
           </div>
         </div>
@@ -507,6 +568,7 @@ export default function Home() {
 
       <ContactOverlay isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
       <LandscapeGalleryModal isOpen={isLandscapeModalOpen} onClose={() => setIsLandscapeModalOpen(false)} />
+      <WildlifeGalleryModal isOpen={isWildlifeModalOpen} onClose={() => setIsWildlifeModalOpen(false)} />
     </div>
   );
 }
