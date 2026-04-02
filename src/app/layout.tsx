@@ -27,7 +27,7 @@ export default function RootLayout({
       lang="en"
       className={`dark ${notoSerif.variable} ${manrope.variable} h-full antialiased`}
     >
-      <body className="font-sans min-h-full flex flex-col">{children}</body>
+      <body className="bg-[#0c0a09] font-sans min-h-full flex flex-col">{children}</body>
     </html>
   );
 }

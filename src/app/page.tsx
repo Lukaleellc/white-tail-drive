@@ -130,7 +130,7 @@ export default function Home() {
   };
 
   return (
-    <div className="bg-[#0c0a09] min-h-screen text-[#e7e5e4] selection:bg-[#ece1d3] selection:text-[#453f34]">
+    <div className="min-h-screen text-[#e7e5e4] selection:bg-[#ece1d3] selection:text-[#453f34]">
       {/* TopNavBar */}
       <nav className="fixed top-0 w-full z-50 bg-[#0c0a09]/70 backdrop-blur-[20px]">
         <div className="max-w-[1440px] mx-auto flex justify-between items-center w-full px-6 md:px-12 py-6">
@@ -193,14 +193,14 @@ export default function Home() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 md:gap-32 items-start">
           <div className="w-full md:w-1/3">
             <SectionHeader
-              label="The Property"
+              label="Property"
               title="The dominant estate is accessed at the end of a private road."
               titleClassName="italic !text-3xl"
             />
           </div>
           <div className="w-full md:w-2/3">
             <p className="section-copy">
-              Situated just 14 miles from Austin-Bergstrom International Airport, and only 19 miles from the Texas Capitol. The property offers a rare balance of privacy and accessibility. The natural preserve allows mature trees to touch the sky.
+              Situated just 14 miles from Austin-Bergstrom International Airport, and only 19 miles from the Texas Capitol. The property offers a rare balance of privacy and proximity. Like a natural preserve, mature trees grow to touch the sky.
             </p>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-12">
               <PropertyStat value="36.25" label="Total Acres" />
@@ -216,9 +216,9 @@ export default function Home() {
         <div className="max-w-[1400px] mx-auto px-6 md:px-12">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
             <div className="max-w-2xl">
-              <SectionHeader 
-                label="Environment" 
-                title="Landscape" 
+              <SectionHeader
+                label="Environment"
+                title="Landscape"
                 titleClassName="!mb-0"
               />
               <p className="section-copy">
@@ -234,16 +234,16 @@ export default function Home() {
               className="flex overflow-x-auto snap-x snap-mandatory h-[500px] md:h-[650px] hide-scrollbar scroll-smooth"
               id="landscape-carousel"
             >
-              <div className="min-w-full h-full snap-start relative">
+              <div className="min-w-full h-full snap-start relative bg-stone-950">
                 <Image className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-1000" alt="Wide landscape of rolling hills and post oak trees" src="/images/gallery-landscape/Pond-Eagle-Oaks.jpg" fill />
               </div>
-              <div className="min-w-full h-full snap-start relative">
+              <div className="min-w-full h-full snap-start relative bg-stone-950">
                 <Image className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-1000" alt="Lush cedar elm grove in morning mist" src="/images/gallery-landscape/Doe-Meadow-01.jpg" fill />
               </div>
-              <div className="min-w-full h-full snap-start relative">
+              <div className="min-w-full h-full snap-start relative bg-stone-950">
                 <Image className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-1000" alt="Golden hour light through prairie grass" src="/images/gallery-landscape/Prickly-Pear-Pass-01.jpg" fill />
               </div>
-              <div className="min-w-full h-full snap-start relative">
+              <div className="min-w-full h-full snap-start relative bg-stone-950">
                 <Image className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-1000" alt="Close up of a pond at dawn with soft reflections" src="/images/gallery-landscape/Prickly-Pear-Pass-04.jpg" fill />
               </div>
             </div>
@@ -299,58 +299,58 @@ export default function Home() {
           >
             {/* Grid Page 1 */}
             <div className="contents md:grid md:grid-cols-12 md:grid-rows-6 md:gap-6 md:min-w-full md:snap-center">
-              <div className="md:col-span-8 md:row-span-4 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
-                <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Buck" src="/images/gallery-wildlife/Buck-01.jpg" />
+              <div className="md:col-span-8 md:row-span-4 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0 bg-[#121212]">
+                <Image fill className="object-cover image-reveal" alt="Buck" src="/images/gallery-wildlife/Buck-01.jpg" />
               </div>
-              <div className="md:col-span-4 md:row-span-4 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
-                <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Hawk" src="/images/gallery-wildlife/Hawk-01.jpg" />
+              <div className="md:col-span-4 md:row-span-4 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0 bg-[#121212]">
+                <Image fill className="object-cover image-reveal" alt="Hawk" src="/images/gallery-wildlife/Hawk-01.jpg" />
               </div>
-              <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
-                <Image fill className="object-cover object-top transition-transform duration-1000 group-hover:scale-105" alt="Hawk soar" src="/images/gallery-wildlife/Hawk-03.jpg" />
+              <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0 bg-[#121212]">
+                <Image fill className="object-cover object-top image-reveal" alt="Hawk soar" src="/images/gallery-wildlife/Hawk-03.jpg" />
               </div>
-              <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
-                <Image fill className="object-cover object-top transition-transform duration-1000 group-hover:scale-105" alt="Bird" src="/images/gallery-wildlife/Bird-01.jpg" />
+              <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0 bg-[#121212]">
+                <Image fill className="object-cover object-top image-reveal" alt="Bird" src="/images/gallery-wildlife/Bird-01.jpg" />
               </div>
-              <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
-                <Image fill className="object-cover object-top transition-transform duration-1000 group-hover:scale-105" alt="Spider" src="/images/gallery-wildlife/Spider-01.jpg" />
+              <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0 bg-[#121212]">
+                <Image fill className="object-cover object-top image-reveal" alt="Spider" src="/images/gallery-wildlife/Spider-01.jpg" />
               </div>
             </div>
 
             {/* Grid Page 2 */}
             <div className="contents md:grid md:grid-cols-12 md:grid-rows-6 md:gap-6 md:min-w-full md:snap-center">
-              <div className="md:col-span-8 md:row-span-4 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
-                <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Buck duplicate" src="/images/gallery-wildlife/Buck-01.jpg" />
+              <div className="md:col-span-8 md:row-span-4 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0 bg-[#121212]">
+                <Image fill className="object-cover image-reveal" alt="Buck" src="/images/gallery-wildlife/Buck-01.jpg" />
               </div>
-              <div className="md:col-span-4 md:row-span-4 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
-                <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Hawk duplicate" src="/images/gallery-wildlife/Hawk-01.jpg" />
+              <div className="md:col-span-4 md:row-span-4 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0 bg-[#121212]">
+                <Image fill className="object-cover image-reveal" alt="Hawk" src="/images/gallery-wildlife/Hawk-01.jpg" />
               </div>
-              <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
-                <Image fill className="object-cover object-top transition-transform duration-1000 group-hover:scale-105" alt="Hawk soar duplicate" src="/images/gallery-wildlife/Hawk-03.jpg" />
+              <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0 bg-[#121212]">
+                <Image fill className="object-cover object-top image-reveal" alt="Hawk soar" src="/images/gallery-wildlife/Hawk-03.jpg" />
               </div>
-              <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
-                <Image fill className="object-cover object-top transition-transform duration-1000 group-hover:scale-105" alt="Bird duplicate" src="/images/gallery-wildlife/Bird-01.jpg" />
+              <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0 bg-[#121212]">
+                <Image fill className="object-cover object-top image-reveal" alt="Bird" src="/images/gallery-wildlife/Bird-01.jpg" />
               </div>
-              <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
-                <Image fill className="object-cover object-top transition-transform duration-1000 group-hover:scale-105" alt="Spider duplicate" src="/images/gallery-wildlife/Spider-01.jpg" />
+              <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0 bg-[#121212]">
+                <Image fill className="object-cover object-top image-reveal" alt="Spider" src="/images/gallery-wildlife/Spider-01.jpg" />
               </div>
             </div>
 
             {/* Grid Page 3 */}
             <div className="contents md:grid md:grid-cols-12 md:grid-rows-6 md:gap-6 md:min-w-full md:snap-center">
-              <div className="md:col-span-8 md:row-span-4 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
-                <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Buck duplicate" src="/images/gallery-wildlife/Buck-01.jpg" />
+              <div className="md:col-span-8 md:row-span-4 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0 bg-[#121212]">
+                <Image fill className="object-cover image-reveal" alt="Buck" src="/images/gallery-wildlife/Buck-01.jpg" />
               </div>
-              <div className="md:col-span-4 md:row-span-4 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
-                <Image fill className="object-cover transition-transform duration-1000 group-hover:scale-105" alt="Hawk duplicate" src="/images/gallery-wildlife/Hawk-01.jpg" />
+              <div className="md:col-span-4 md:row-span-4 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0 bg-[#121212]">
+                <Image fill className="object-cover image-reveal" alt="Hawk" src="/images/gallery-wildlife/Hawk-01.jpg" />
               </div>
-              <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
-                <Image fill className="object-cover object-top transition-transform duration-1000 group-hover:scale-105" alt="Hawk soar duplicate" src="/images/gallery-wildlife/Hawk-03.jpg" />
+              <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0 bg-[#121212]">
+                <Image fill className="object-cover object-top image-reveal" alt="Hawk soar" src="/images/gallery-wildlife/Hawk-03.jpg" />
               </div>
-              <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
-                <Image fill className="object-cover object-top transition-transform duration-1000 group-hover:scale-105" alt="Bird duplicate" src="/images/gallery-wildlife/Bird-01.jpg" />
+              <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0 bg-[#121212]">
+                <Image fill className="object-cover object-top image-reveal" alt="Bird" src="/images/gallery-wildlife/Bird-01.jpg" />
               </div>
-              <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0">
-                <Image fill className="object-cover object-top transition-transform duration-1000 group-hover:scale-105" alt="Spider duplicate" src="/images/gallery-wildlife/Spider-01.jpg" />
+              <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0 bg-[#121212]">
+                <Image fill className="object-cover object-top image-reveal" alt="Spider" src="/images/gallery-wildlife/Spider-01.jpg" />
               </div>
             </div>
           </div>
@@ -424,7 +424,7 @@ export default function Home() {
               title="East Austin Tech Expansion."
             />
             <p className="section-copy max-w-xl">
-              The estate offers excellent proximity to the headquarters or central operations for products and industries of the future.
+              The estate offers excellent proximity to the central operations for products and industries of the future.
             </p>
             <div className="grid grid-cols-2 gap-8 border-l border-stone-800 pl-8">
               <div>
@@ -448,13 +448,13 @@ export default function Home() {
 
           <div className="relative h-[500px] group">
             {/* Outline Offset Box */}
-            <div className="absolute inset-0 border border-stone-800 translate-x-4 translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500 z-0"></div>
+            <div className="reveal-frame"></div>
 
             {/* Masked Image Container */}
             <div className="relative w-full h-full z-10 overflow-hidden bg-stone-900 border border-stone-900 w-full h-full rounded-sm">
               <Image
                 fill
-                className="object-cover grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-1000"
+                className="object-cover image-reveal"
                 alt="Modern high-tech industrial architecture"
                 src="/images/Tesla-GigaTexas.png"
               />
