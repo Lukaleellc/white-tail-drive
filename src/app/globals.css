@@ -164,4 +164,8 @@
   .reveal-frame {
     @apply absolute inset-0 border border-stone-800 translate-x-4 translate-y-4 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-700 z-0;
   }
+
+  .image-luxury-zoom {
+    @apply scale-[1.10] transition-transform duration-1000 group-hover:scale-[1.18];
+  }
 }
