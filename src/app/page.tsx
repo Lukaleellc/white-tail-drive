@@ -16,7 +16,7 @@ const navLinks = [
   { id: 'property', label: 'Property' },
   { id: 'landscape', label: 'Landscape' },
   { id: 'wildlife', label: 'Wildlife' },
-  { id: 'ag', label: 'Ag Exemption' },
+  { id: 'ag', label: 'Ag Valuation' },
   { id: 'tech', label: 'Technology' },
   { id: 'attractions', label: 'Attractions' },
 ];
@@ -378,7 +378,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Ag Exemption Section */}
+      {/* Ag Valuation Section */}
       <section className="py-32 bg-stone-950/50" id="ag">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
@@ -420,28 +420,43 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div className="relative z-10">
             <SectionHeader
-              label="Strategic"
-              title="East Austin Tech Expansion."
+              label="Technology"
+              title="East Austin Tech Expansion"
             />
             <p className="section-copy max-w-xl">
               The estate offers excellent proximity to the central operations for products and industries of the future.
             </p>
-            <div className="grid grid-cols-2 gap-8 border-l border-stone-800 pl-8">
+            <div className="grid grid-cols-2 gap-8">
               <div>
-                <div className="text-stone-500 font-sans text-[0.6rem] uppercase tracking-widest mb-1">Automotive & AI</div>
-                <div className="text-stone-100 font-medium text-lg">Tesla GigaFactory</div>
+                <div className="text-stone-500 font-sans text-[0.6rem] uppercase tracking-widest mb-1">Autonomous Vehicles</div>
+                <div className="text-stone-100 font-medium text-lg">Tesla Giga</div>
               </div>
               <div>
-                <div className="text-stone-500 font-sans text-[0.6rem] uppercase tracking-widest mb-1">Aerospace</div>
-                <div className="text-stone-100 font-medium text-lg">SpaceX / Starlink</div>
+                <div className="text-stone-500 font-sans text-[0.6rem] uppercase tracking-widest mb-1">Global Satellite Connectivity</div>
+                <div className="text-stone-100 font-medium text-lg">Starlink</div>
               </div>
               <div>
-                <div className="text-stone-500 font-sans text-[0.6rem] uppercase tracking-widest mb-1">AI Research</div>
-                <div className="text-stone-100 font-medium text-lg">xAI Campus</div>
+                <div className="text-stone-500 font-sans text-[0.6rem] uppercase tracking-widest mb-1">Neural Engineering</div>
+                <div className="text-stone-100 font-medium text-lg">Neuralink</div>
               </div>
               <div>
-                <div className="text-stone-500 font-sans text-[0.6rem] uppercase tracking-widest mb-1">Infrastructure</div>
-                <div className="text-stone-100 font-medium text-lg">Bastrop Tech Corridor</div>
+                <div className="text-stone-500 font-sans text-[0.6rem] uppercase tracking-widest mb-1">Reusable Rockets / Space Exploration</div>
+                <div className="text-stone-100 font-medium text-lg">SpaceX</div>
+              </div>
+              <div>
+                <div className="text-stone-500 font-sans text-[0.6rem] uppercase tracking-widest mb-1">Artificial General Intelligence</div>
+                <div className="text-stone-100 font-medium text-lg">xAi</div>
+              </div>
+              <div>
+                <div className="text-stone-500 font-sans text-[0.6rem] uppercase tracking-widest mb-1">Global Digital Town Square</div>
+                <div className="text-stone-100 font-medium text-lg">X (Twitter)</div>
+              </div>
+              <div>
+                <div className="text-stone-500 font-sans text-[0.6rem] uppercase tracking-widest mb-1">Subterranean Transit</div>
+                <div className="text-stone-100 font-medium text-lg">The Boring Company</div>
+              </div>
+              <div>
+                {/* 8th entry reserved */}
               </div>
             </div>
           </div>
@@ -455,7 +470,7 @@ export default function Home() {
               <Image
                 fill
                 className="object-cover image-reveal"
-                alt="Modern high-tech industrial architecture"
+                alt="Tesla Giga"
                 src="/images/Tesla-GigaTexas.png"
               />
 
@@ -475,45 +490,45 @@ export default function Home() {
         <div className="max-w-[1400px] mx-auto">
           <div className="text-center mb-20">
             <SectionHeader
-              label="Location"
-              title="Privacy & Proximity"
+              label="Attractions"
+              title="The Austin Orbit"
             />
             <p className="section-copy max-w-2xl mx-auto">
-              While the silence here is absolute, the energy of Central Texas is always within reach. A world of vibrant experiences awaits within a 20-minute drive.
+              Uniquely positioned privacy. While the property features considerable seclusion, the capital city's culture, recreation, and entertainment remain a short drive away.
             </p>
           </div>
 
           {/* Masonry-style Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
             <div className="md:col-span-2 relative group overflow-hidden rounded-sm">
-              <Image fill className="object-cover hover:scale-105 transition-transform duration-1000" alt="Gourmet dining experience in Austin" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-Xyx8S9TwB_nf98sjnWsYFpZd3OSjNmwcmJCHOPvmYH4zaB7ssOVsrshmrpYUTOFwLC1ytl2wp3qe34kyUpj-R9pUJhUv0syolmh7L4RtCGa9SKYR-XfQgj3RyGWgVlGUiHe8sKrZWYQYQlCRM6qDXPEcAaaHe8NnPfhFaLc-5c-qPL-nSD8-_qzBNBg9kwJXvs1Hrj2lnSROSeS7zR5zpQRk83fNUSt_YY_2Pevw3W1_9KptMl-6tFqDNyvpktDffD6CHt2tuhlu" />
+              <Image fill className="object-cover hover:scale-105 transition-transform duration-1000" alt="Surfer riding a wave at Austin Surf Club" src="/images/Surf-Club.png" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8">
-                <span className="text-stone-400 font-sans text-[0.65rem] uppercase tracking-widest mb-2">Gastronomy</span>
-                <h4 className="text-2xl font-serif text-stone-100 italic">Chef-Driven Excellence</h4>
+                <span className="text-stone-400 font-sans text-[0.65rem] uppercase tracking-widest mb-2">Exclusive Recreation</span>
+                <h4 className="text-2xl font-serif text-stone-100 italic">Austin Surf Club</h4>
               </div>
             </div>
 
             <div className="relative group overflow-hidden rounded-sm">
-              <Image fill className="object-cover hover:scale-105 transition-transform duration-1000" alt="High-end shopping district" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBQ-Yr0BhQOJ7MTamjESRtd84KXUKRixs3A-hi44wrp3bB7t2f6KsrgGoeukddoX6182rvVydClCsb7KziFka4dCqcZgdci6X1CxtS3YOc35pfmSppgGzXO88w_lQ-tS6BkiVT_dpVdCnaF-mjR1657Is4w4p_3XvOCIkLTHkDzSyKOG2TCSOBg4Eu1SkQXyyD5OXhXsdwAKoKYfI4vcJg3tdaMChQZGXZ87EJwJz9Jpksdq3VQ1NrSnO-z4EkXl9cYiZsHM59LIHZ" />
+              <Image fill className="object-cover hover:scale-105 transition-transform duration-1000" alt="Tesla Eco-Park ecological reserve" src="/images/Tesla-eco-park.webp" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-6">
-                <span className="text-stone-400 font-sans text-[0.65rem] uppercase tracking-widest mb-2">Lifestyle</span>
-                <h4 className="text-xl font-serif text-stone-100">Curated Retail</h4>
+                <span className="text-stone-400 font-sans text-[0.65rem] uppercase tracking-widest mb-2">Ecological Reserve</span>
+                <h4 className="text-xl font-serif text-stone-100">Tesla Eco-Park</h4>
               </div>
             </div>
 
             <div className="relative group overflow-hidden rounded-sm">
               <Image fill className="object-cover hover:scale-105 transition-transform duration-1000" alt="Scenic river views" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWUuXwpL8ao31uPtFaflTn43aNRaBCgxKfPFOPOzdC41sfxd3PqSLEHwikR0lxsZe1l3GeNySCCF_8ad6sfqrc0S5-DbrVIwyrQAKZIqae9uR4WzBRnXwFhZbQMj7AVcCtXl328GnsMbD2DsLYwcBfbSc1RcQxs4yJmDOc8wj5TRXHKFajlB5nGaYU6nouFiF2_YTP1MMucHOkCt9IPWxU4O5G-vM32NQHjTk_Pej5a4Li6CDTrkS9pIC3-H2yr4uKaEDNoCb_TMp4" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-6">
-                <span className="text-stone-400 font-sans text-[0.65rem] uppercase tracking-widest mb-2">Nature</span>
-                <h4 className="text-xl font-serif text-stone-100">Colorado River Access</h4>
+                <span className="text-stone-400 font-sans text-[0.65rem] uppercase tracking-widest mb-2">Culture & Culinary</span>
+                <h4 className="text-xl font-serif text-stone-100">Downtown Austin</h4>
               </div>
             </div>
 
             <div className="md:col-span-2 relative group overflow-hidden rounded-sm">
               <Image fill className="object-cover hover:scale-105 transition-transform duration-1000" alt="Live music performance in Austin" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoIT0VOyrVZWRrFjbKOPg79C_xVGZ6n89ibpJ_Xr_G9Z_CLptt35NJWH1hSZWyhvP05iqXPVUhPiwkmQ9jk2EzaoM0B9hgGoa8gUhlM8vkHAQjG9jaav0O742gxnP4wX_LgtF8aAvTcL-7xCBULLMcl4R1FUEtPGW0WCJgsG7pGQUsaM-DXJzODOzT9RrnPskRUlreOHYU8_G45GDlW2DWAkmlP6o7G9KAbTGwp0my4jISH4PUTlBgrZqDBvG1EgZuNTm7wUgFTi7Y" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8">
-                <span className="text-stone-400 font-sans text-[0.65rem] uppercase tracking-widest mb-2">Entertainment</span>
-                <h4 className="text-2xl font-serif text-stone-100 italic">World-Class Live Venues</h4>
+                <span className="text-stone-400 font-sans text-[0.65rem] uppercase tracking-widest mb-2">World-Class Entertainment</span>
+                <h4 className="text-2xl font-serif text-stone-100 italic">Circuit of the Americas</h4>
               </div>
             </div>
           </div>
