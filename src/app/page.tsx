@@ -501,7 +501,7 @@ export default function Home() {
           {/* Masonry-style Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
             <div className="md:col-span-2 relative group overflow-hidden rounded-sm">
-              <Image fill className="object-cover hover:scale-105 transition-transform duration-1000" alt="Surfer riding a wave at Austin Surf Club" src="/images/Surf-Club.png" />
+              <Image fill className="object-cover object-top hover:scale-105 transition-transform duration-1000" alt="Austin Surf Club" src="/images/Surf-Club.png" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8">
                 <span className="text-stone-400 font-sans text-[0.65rem] uppercase tracking-widest mb-2">Exclusive Recreation</span>
                 <h4 className="text-2xl font-serif text-stone-100 italic">Austin Surf Club</h4>
@@ -509,15 +509,15 @@ export default function Home() {
             </div>
 
             <div className="relative group overflow-hidden rounded-sm">
-              <Image fill className="object-cover hover:scale-105 transition-transform duration-1000" alt="Tesla Eco-Park ecological reserve" src="/images/Tesla-eco-park.webp" />
+              <Image fill className="object-cover object-top hover:scale-105 transition-transform duration-1000" alt="Tesla Eco-Park" src="/images/Tesla-eco-park.png" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-6">
-                <span className="text-stone-400 font-sans text-[0.65rem] uppercase tracking-widest mb-2">Ecological Reserve</span>
+                <span className="text-stone-400 font-sans text-[0.65rem] uppercase tracking-widest mb-2">Ecological Paradise</span>
                 <h4 className="text-xl font-serif text-stone-100">Tesla Eco-Park</h4>
               </div>
             </div>
 
             <div className="relative group overflow-hidden rounded-sm">
-              <Image fill className="object-cover hover:scale-105 transition-transform duration-1000" alt="Scenic river views" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWUuXwpL8ao31uPtFaflTn43aNRaBCgxKfPFOPOzdC41sfxd3PqSLEHwikR0lxsZe1l3GeNySCCF_8ad6sfqrc0S5-DbrVIwyrQAKZIqae9uR4WzBRnXwFhZbQMj7AVcCtXl328GnsMbD2DsLYwcBfbSc1RcQxs4yJmDOc8wj5TRXHKFajlB5nGaYU6nouFiF2_YTP1MMucHOkCt9IPWxU4O5G-vM32NQHjTk_Pej5a4Li6CDTrkS9pIC3-H2yr4uKaEDNoCb_TMp4" />
+              <Image fill className="object-cover object-top hover:scale-105 transition-transform duration-1000" alt="Austin, TX" src="/images/Austin-TX.png" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-6">
                 <span className="text-stone-400 font-sans text-[0.65rem] uppercase tracking-widest mb-2">Culture & Culinary</span>
                 <h4 className="text-xl font-serif text-stone-100">Downtown Austin</h4>
@@ -525,19 +525,21 @@ export default function Home() {
             </div>
 
             <div className="md:col-span-2 relative group overflow-hidden rounded-sm">
-              <Image fill className="object-cover hover:scale-105 transition-transform duration-1000" alt="Live music performance in Austin" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoIT0VOyrVZWRrFjbKOPg79C_xVGZ6n89ibpJ_Xr_G9Z_CLptt35NJWH1hSZWyhvP05iqXPVUhPiwkmQ9jk2EzaoM0B9hgGoa8gUhlM8vkHAQjG9jaav0O742gxnP4wX_LgtF8aAvTcL-7xCBULLMcl4R1FUEtPGW0WCJgsG7pGQUsaM-DXJzODOzT9RrnPskRUlreOHYU8_G45GDlW2DWAkmlP6o7G9KAbTGwp0my4jISH4PUTlBgrZqDBvG1EgZuNTm7wUgFTi7Y" />
+              <Image fill className="object-cover object-top hover:scale-105 transition-transform duration-1000" alt="Circuit of the Americas" src="/images/COTA.png" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-8">
-                <span className="text-stone-400 font-sans text-[0.65rem] uppercase tracking-widest mb-2">World-Class Entertainment</span>
+                <span className="text-stone-400 font-sans text-[0.65rem] uppercase tracking-widest mb-2">Formula 1 & Entertainment</span>
                 <h4 className="text-2xl font-serif text-stone-100 italic">Circuit of the Americas</h4>
               </div>
             </div>
           </div>
 
+          {/*
           <div className="mt-16 text-center">
             <Button variant="outline" size="md">
               Discover the Area
             </Button>
           </div>
+          */}
         </div>
       </section>
 
@@ -546,7 +548,7 @@ export default function Home() {
         <div className="max-w-4xl text-center">
           <SectionHeader
             label="Private Tour"
-            title="Witness the stillness."
+            title="Lay eyes on the land."
             className="text-center"
           />
           <p className="section-copy max-w-2xl mx-auto">
@@ -562,11 +564,13 @@ export default function Home() {
       <footer className="bg-stone-950 w-full border-t border-stone-900/30">
         <div className="flex flex-col items-center px-6 md:px-12 py-16 w-full max-w-screen-2xl mx-auto justify-center">
           <div className="flex flex-col md:flex-row gap-10 items-center text-center">
+            {/*
             <div className="flex flex-wrap justify-center gap-8">
               <a className="text-stone-500 hover:text-stone-300 transition-colors duration-300 font-sans text-[0.75rem] uppercase tracking-[0.1rem]" href="#">Privacy Policy</a>
               <a className="text-stone-500 hover:text-stone-300 transition-colors duration-300 font-sans text-[0.75rem] uppercase tracking-[0.1rem]" href="#">Terms of Service</a>
               <a className="text-stone-500 hover:text-stone-300 transition-colors duration-300 font-sans text-[0.75rem] uppercase tracking-[0.1rem]" href="#">Accessibility</a>
             </div>
+            */}
             <div className="text-stone-600 font-sans text-[0.7rem] uppercase tracking-[0.1rem]">
               © 2026 All rights reserved.
             </div>
