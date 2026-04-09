@@ -50,7 +50,7 @@ export const ContactOverlay: React.FC<ContactOverlayProps> = ({ isOpen, onClose 
 
         <div className="space-y-10">
           <div>
-            <span className="block text-stone-600 font-sans text-[0.6rem] uppercase tracking-widest mb-2">Representative</span>
+            <span className="block text-stone-600 font-sans text-[0.6rem] uppercase tracking-widest mb-2">Agent</span>
             <span className="text-xl md:text-2xl text-stone-200 font-serif">James Bigley</span>
           </div>
 

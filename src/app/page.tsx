@@ -552,7 +552,7 @@ export default function Home() {
             className="text-center"
           />
           <p className="section-copy max-w-2xl mx-auto">
-            We invite qualified buyers to experience the property in person. Guided tours available by appointment only.
+            We invite qualified buyers to experience the property in person.<br /> Guided tours available by appointment only.
           </p>
           <div className="flex flex-col md:flex-row gap-6 justify-center">
             <Button variant="primary" size="lg" className="shadow-2xl" onClick={() => setIsContactOpen(true)}>Inquire</Button>
