@@ -25,7 +25,7 @@ export function WildlifeGalleryModal({ isOpen, onClose }: WildlifeGalleryModalPr
     } else {
       document.body.style.overflow = 'unset';
     }
-    
+
     // Cleanup on unmount
     return () => {
       document.body.style.overflow = 'unset';
@@ -37,19 +37,19 @@ export function WildlifeGalleryModal({ isOpen, onClose }: WildlifeGalleryModalPr
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center">
       {/* Mist Backdrop */}
-      <div 
+      <div
         className="absolute inset-0 bg-stone-950/80 backdrop-blur-xl transition-opacity duration-500"
         onClick={onClose}
       />
 
       {/* Close Button */}
-      <button 
+      <button
         onClick={onClose}
         className="absolute top-6 right-6 md:top-10 md:right-10 z-[110] w-12 h-12 rounded-full border border-stone-800 flex items-center justify-center text-stone-400 hover:text-white hover:border-stone-400 bg-stone-900/50 backdrop-blur-md transition-all duration-300"
         aria-label="Close Gallery"
       >
         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="currentColor">
-          <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+          <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
         </svg>
       </button>
 
@@ -58,10 +58,10 @@ export function WildlifeGalleryModal({ isOpen, onClose }: WildlifeGalleryModalPr
         <div className="max-w-[1600px] mx-auto">
           {/* Gallery Header */}
           <div className="mb-16 md:mb-24 text-center">
-            <h2 className="text-4xl md:text-5xl font-serif text-stone-100 mb-4 tracking-tight">The Wildlife</h2>
+            <h2 className="text-4xl md:text-5xl font-serif text-stone-100 mb-4 tracking-tight">Wildlife</h2>
             <div className="w-12 h-px bg-[#FFB800] mx-auto"></div>
             <p className="mt-6 text-stone-400 font-light tracking-wide max-w-2xl mx-auto">
-              A vibrant ecosystem, supporting native deer, hawks, pollinators, and diverse fauna.
+              A sampling of photos throughout the year.
             </p>
           </div>
 
@@ -69,10 +69,10 @@ export function WildlifeGalleryModal({ isOpen, onClose }: WildlifeGalleryModalPr
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[2px]">
             {images.map((image, index) => (
               <div key={index} className="relative w-full aspect-[4/3] group overflow-hidden bg-stone-900">
-                <Image 
-                  src={image.src} 
-                  alt={image.alt} 
-                  fill 
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
                   className="object-cover transition-transform duration-1000 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
