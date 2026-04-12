@@ -5,12 +5,15 @@ export async function POST(request: Request) {
   try {
     const { password } = await request.json();
 
-    // The secret password. 
-    // We use Vercel Environment variables, but we provide a default backup 
-    // just in case they aren't configured during the very first deployment!
-    const correctPassword = process.env.STAGING_PASSWORD || 'whitetail101';
+    // The secret passwords (Concierge System).
+    // We check against the master environment variable, as well as a
+    // hardcoded list of guest passwords managed directly in this file.
+    const validPasswords = [
+      process.env.STAGING_PASSWORD || 'whitetail101',
+      'whitetail140' // Added on request
+    ];
 
-    if (password === correctPassword) {
+    if (validPasswords.includes(password)) {
       // Set a secure, HTTP-only cookie to track the session
       // This cookie lasts for 7 days
       const cookieStore = await cookies();
