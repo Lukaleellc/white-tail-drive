@@ -394,15 +394,15 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
             <div className="order-2 md:order-1 relative w-full aspect-[4/5] rounded-sm overflow-hidden group">
-              <Image fill className="object-cover object-top transition-transform duration-1000 scale-[1.10] group-hover:scale-[1.18]" alt="Graceful whitetail deer in a sun-dappled meadow" src="/images/gallery-wildlife/Doe-04.jpg" />
+              <Image fill className="object-cover object-top transition-transform duration-1000 scale-[1.15] group-hover:scale-[1.18]" alt="Graceful whitetail deer in a sun-dappled meadow" src="/images/gallery-wildlife/Doe-04.jpg" />
               <video
                 autoPlay
                 loop
                 muted
                 playsInline
-                className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-1000 scale-[1.10] group-hover:scale-[1.18]"
+                className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-1000 scale-[1.15] group-hover:scale-[1.18]"
               >
-                <source src="/images/gallery-wildlife/Deer-family-01.mp4" type="video/mp4" />
+                <source src="/images/gallery-wildlife/Coyote-solo-01.mp4" type="video/mp4" />
               </video>
             </div>
             <div className="order-1 md:order-2">
