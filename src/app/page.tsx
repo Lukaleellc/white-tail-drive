@@ -306,42 +306,42 @@ export default function Home() {
                 <Image fill className="object-cover object-top image-luxury-zoom image-reveal" alt="Hawk" src="/images/gallery-wildlife/Hawk-01.jpg" />
               </div>
               <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0 bg-[#121212]">
-                <Image fill className="object-cover object-top image-luxury-zoom image-reveal" alt="Hawk soar" src="/images/gallery-wildlife/Hawk-03.jpg" />
+                <Image fill className="object-cover object-top image-luxury-zoom image-reveal" alt="Hawk soar" src="/images/gallery-wildlife/Hog-01.jpg" />
               </div>
               <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0 bg-[#121212]">
-                <Image fill className="object-cover object-top image-luxury-zoom image-reveal" alt="Bird" src="/images/gallery-wildlife/Bird-01.jpg" />
+                <Image fill className="object-cover object-top image-luxury-zoom image-reveal" alt="Bird" src="/images/gallery-wildlife/Coyote-01.jpg" />
               </div>
               <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0 bg-[#121212]">
-                <Image fill className="object-cover object-top image-luxury-zoom image-reveal" alt="Spider" src="/images/gallery-wildlife/Spider-01.jpg" />
+                <Image fill className="object-cover object-top image-luxury-zoom image-reveal" alt="Spider" src="/images/gallery-wildlife/Turkey-01.jpg" />
               </div>
             </div>
 
             {/* Grid Page 2 */}
             <div className="contents md:grid md:grid-cols-12 md:grid-rows-6 md:gap-6 md:min-w-full md:snap-center">
               <div className="md:col-span-8 md:row-span-4 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0 bg-[#121212]">
-                <Image fill className="object-cover object-top image-luxury-zoom image-reveal" alt="Buck" src="/images/gallery-wildlife/Buck-01.jpg" />
+                <Image fill className="object-cover object-top image-luxury-zoom image-reveal" alt="Buck" src="/images/gallery-wildlife/Buck-02.jpg" />
               </div>
               <div className="md:col-span-4 md:row-span-4 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0 bg-[#121212]">
-                <Image fill className="object-cover object-top image-luxury-zoom image-reveal" alt="Hawk" src="/images/gallery-wildlife/Hawk-01.jpg" />
+                <Image fill className="object-cover object-top image-luxury-zoom image-reveal" alt="Hawk" src="/images/gallery-wildlife/Vulture-02.jpg" />
               </div>
               <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0 bg-[#121212]">
-                <Image fill className="object-cover object-top image-luxury-zoom image-reveal" alt="Hawk soar" src="/images/gallery-wildlife/Hawk-03.jpg" />
+                <Image fill className="object-cover object-top image-luxury-zoom image-reveal" alt="Hawk soar" src="/images/gallery-wildlife/Fox-01.jpg" />
               </div>
               <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0 bg-[#121212]">
-                <Image fill className="object-cover object-top image-luxury-zoom image-reveal" alt="Bird" src="/images/gallery-wildlife/Bird-01.jpg" />
+                <Image fill className="object-cover object-top image-luxury-zoom image-reveal" alt="Bird" src="/images/gallery-wildlife/Fox-01.jpg" />
               </div>
               <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0 bg-[#121212]">
-                <Image fill className="object-cover object-top image-luxury-zoom image-reveal" alt="Spider" src="/images/gallery-wildlife/Spider-01.jpg" />
+                <Image fill className="object-cover object-top image-luxury-zoom image-reveal" alt="Spider" src="/images/gallery-wildlife/Fox-01.jpg" />
               </div>
             </div>
 
             {/* Grid Page 3 */}
             <div className="contents md:grid md:grid-cols-12 md:grid-rows-6 md:gap-6 md:min-w-full md:snap-center">
               <div className="md:col-span-8 md:row-span-4 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0 bg-[#121212]">
-                <Image fill className="object-cover object-top image-luxury-zoom image-reveal" alt="Buck" src="/images/gallery-wildlife/Buck-01.jpg" />
+                <Image fill className="object-cover object-top image-luxury-zoom image-reveal" alt="Buck" src="/images/gallery-wildlife/Doe-05.jpg" />
               </div>
               <div className="md:col-span-4 md:row-span-4 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0 bg-[#121212]">
-                <Image fill className="object-cover object-top image-luxury-zoom image-reveal" alt="Hawk" src="/images/gallery-wildlife/Hawk-01.jpg" />
+                <Image fill className="object-cover object-top image-luxury-zoom image-reveal" alt="Hawk" src="/images/gallery-wildlife/Spider-01.jpg" />
               </div>
               <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0 bg-[#121212]">
                 <Image fill className="object-cover object-top image-luxury-zoom image-reveal" alt="Hawk soar" src="/images/gallery-wildlife/Hawk-03.jpg" />
@@ -350,7 +350,7 @@ export default function Home() {
                 <Image fill className="object-cover object-top image-luxury-zoom image-reveal" alt="Bird" src="/images/gallery-wildlife/Bird-01.jpg" />
               </div>
               <div className="md:col-span-4 md:row-span-2 relative group overflow-hidden snap-start md:snap-none h-full md:h-auto min-w-full md:min-w-0 bg-[#121212]">
-                <Image fill className="object-cover object-top image-luxury-zoom image-reveal" alt="Spider" src="/images/gallery-wildlife/Spider-01.jpg" />
+                <Image fill className="object-cover object-center image-luxury-zoom image-reveal" alt="Spider" src="/images/gallery-wildlife/Turtle-01.jpg" />
               </div>
             </div>
           </div>
