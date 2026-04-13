@@ -1,0 +1,382 @@
+{
+  "gallery-wildlife": [
+    {
+      "src": "/images/gallery-wildlife/Bird-01.jpg",
+      "alt": "Bird 01"
+    },
+    {
+      "src": "/images/gallery-wildlife/Buck-01.jpg",
+      "alt": "Buck 01"
+    },
+    {
+      "src": "/images/gallery-wildlife/Buck-02.jpg",
+      "alt": "Buck 02"
+    },
+    {
+      "src": "/images/gallery-wildlife/Buck-03.jpg",
+      "alt": "Buck 03"
+    },
+    {
+      "src": "/images/gallery-wildlife/Buck-04.jpg",
+      "alt": "Buck 04"
+    },
+    {
+      "src": "/images/gallery-wildlife/Coyote-01.jpg",
+      "alt": "Coyote 01"
+    },
+    {
+      "src": "/images/gallery-wildlife/Coyote-02.jpg",
+      "alt": "Coyote 02"
+    },
+    {
+      "src": "/images/gallery-wildlife/Coyote-03.jpg",
+      "alt": "Coyote 03"
+    },
+    {
+      "src": "/images/gallery-wildlife/Doe-01.jpg",
+      "alt": "Doe 01"
+    },
+    {
+      "src": "/images/gallery-wildlife/Doe-02.jpg",
+      "alt": "Doe 02"
+    },
+    {
+      "src": "/images/gallery-wildlife/Doe-03.jpg",
+      "alt": "Doe 03"
+    },
+    {
+      "src": "/images/gallery-wildlife/Doe-04.jpg",
+      "alt": "Doe 04"
+    },
+    {
+      "src": "/images/gallery-wildlife/Doe-05.jpg",
+      "alt": "Doe 05"
+    },
+    {
+      "src": "/images/gallery-wildlife/Fox-01.jpg",
+      "alt": "Fox 01"
+    },
+    {
+      "src": "/images/gallery-wildlife/Hawk-01.jpg",
+      "alt": "Hawk 01"
+    },
+    {
+      "src": "/images/gallery-wildlife/Hawk-02.jpg",
+      "alt": "Hawk 02"
+    },
+    {
+      "src": "/images/gallery-wildlife/Hawk-03.jpg",
+      "alt": "Hawk 03"
+    },
+    {
+      "src": "/images/gallery-wildlife/Hawk-04.jpg",
+      "alt": "Hawk 04"
+    },
+    {
+      "src": "/images/gallery-wildlife/Hawk-05.jpg",
+      "alt": "Hawk 05"
+    },
+    {
+      "src": "/images/gallery-wildlife/Hog-01.jpg",
+      "alt": "Hog 01"
+    },
+    {
+      "src": "/images/gallery-wildlife/Hog-02.jpg",
+      "alt": "Hog 02"
+    },
+    {
+      "src": "/images/gallery-wildlife/Hog-03.jpg",
+      "alt": "Hog 03"
+    },
+    {
+      "src": "/images/gallery-wildlife/Spider-01.jpg",
+      "alt": "Spider 01"
+    },
+    {
+      "src": "/images/gallery-wildlife/Turkey-01.jpg",
+      "alt": "Turkey 01"
+    },
+    {
+      "src": "/images/gallery-wildlife/Turkey-02.jpg",
+      "alt": "Turkey 02"
+    },
+    {
+      "src": "/images/gallery-wildlife/Turtle-01.jpg",
+      "alt": "Turtle 01"
+    },
+    {
+      "src": "/images/gallery-wildlife/Vulture-01.jpg",
+      "alt": "Vulture 01"
+    },
+    {
+      "src": "/images/gallery-wildlife/Vulture-02.jpg",
+      "alt": "Vulture 02"
+    }
+  ],
+  "gallery-landscape": [
+    {
+      "src": "/images/gallery-landscape/Doe-Meadow-01.jpg",
+      "alt": "Doe Meadow 01"
+    },
+    {
+      "src": "/images/gallery-landscape/Doe-Meadow-02.jpg",
+      "alt": "Doe Meadow 02"
+    },
+    {
+      "src": "/images/gallery-landscape/Doe-Meadow-03.jpg",
+      "alt": "Doe Meadow 03"
+    },
+    {
+      "src": "/images/gallery-landscape/IMG_2037.JPG",
+      "alt": "IMG_2037"
+    },
+    {
+      "src": "/images/gallery-landscape/IMG_2041.JPG",
+      "alt": "IMG_2041"
+    },
+    {
+      "src": "/images/gallery-landscape/IMG_2073.JPG",
+      "alt": "IMG_2073"
+    },
+    {
+      "src": "/images/gallery-landscape/IMG_2077.JPG",
+      "alt": "IMG_2077"
+    },
+    {
+      "src": "/images/gallery-landscape/IMG_2080.JPG",
+      "alt": "IMG_2080"
+    },
+    {
+      "src": "/images/gallery-landscape/IMG_2081.JPG",
+      "alt": "IMG_2081"
+    },
+    {
+      "src": "/images/gallery-landscape/IMG_2084.JPG",
+      "alt": "IMG_2084"
+    },
+    {
+      "src": "/images/gallery-landscape/IMG_2085.JPG",
+      "alt": "IMG_2085"
+    },
+    {
+      "src": "/images/gallery-landscape/IMG_2086.JPG",
+      "alt": "IMG_2086"
+    },
+    {
+      "src": "/images/gallery-landscape/IMG_2089.JPG",
+      "alt": "IMG_2089"
+    },
+    {
+      "src": "/images/gallery-landscape/IMG_2098.JPG",
+      "alt": "IMG_2098"
+    },
+    {
+      "src": "/images/gallery-landscape/IMG_2106.JPG",
+      "alt": "IMG_2106"
+    },
+    {
+      "src": "/images/gallery-landscape/IMG_2109.JPG",
+      "alt": "IMG_2109"
+    },
+    {
+      "src": "/images/gallery-landscape/IMG_2110.JPG",
+      "alt": "IMG_2110"
+    },
+    {
+      "src": "/images/gallery-landscape/IMG_2112.JPG",
+      "alt": "IMG_2112"
+    },
+    {
+      "src": "/images/gallery-landscape/IMG_2113.JPG",
+      "alt": "IMG_2113"
+    },
+    {
+      "src": "/images/gallery-landscape/IMG_2117.JPG",
+      "alt": "IMG_2117"
+    },
+    {
+      "src": "/images/gallery-landscape/IMG_2120.JPG",
+      "alt": "IMG_2120"
+    },
+    {
+      "src": "/images/gallery-landscape/IMG_2124.JPG",
+      "alt": "IMG_2124"
+    },
+    {
+      "src": "/images/gallery-landscape/IMG_2126.JPG",
+      "alt": "IMG_2126"
+    },
+    {
+      "src": "/images/gallery-landscape/IMG_2127.JPG",
+      "alt": "IMG_2127"
+    },
+    {
+      "src": "/images/gallery-landscape/IMG_2128.JPG",
+      "alt": "IMG_2128"
+    },
+    {
+      "src": "/images/gallery-landscape/IMG_2138.JPG",
+      "alt": "IMG_2138"
+    },
+    {
+      "src": "/images/gallery-landscape/IMG_2141.JPG",
+      "alt": "IMG_2141"
+    },
+    {
+      "src": "/images/gallery-landscape/IMG_2143.JPG",
+      "alt": "IMG_2143"
+    },
+    {
+      "src": "/images/gallery-landscape/IMG_2145.JPG",
+      "alt": "IMG_2145"
+    },
+    {
+      "src": "/images/gallery-landscape/IMG_2147.JPG",
+      "alt": "IMG_2147"
+    },
+    {
+      "src": "/images/gallery-landscape/IMG_2148.JPG",
+      "alt": "IMG_2148"
+    },
+    {
+      "src": "/images/gallery-landscape/IMG_2149.JPG",
+      "alt": "IMG_2149"
+    },
+    {
+      "src": "/images/gallery-landscape/IMG_2153.JPG",
+      "alt": "IMG_2153"
+    },
+    {
+      "src": "/images/gallery-landscape/IMG_2156.JPG",
+      "alt": "IMG_2156"
+    },
+    {
+      "src": "/images/gallery-landscape/IMG_2158.JPG",
+      "alt": "IMG_2158"
+    },
+    {
+      "src": "/images/gallery-landscape/IMG_2159.JPG",
+      "alt": "IMG_2159"
+    },
+    {
+      "src": "/images/gallery-landscape/IMG_2161.JPG",
+      "alt": "IMG_2161"
+    },
+    {
+      "src": "/images/gallery-landscape/PXL_20250419_155925395.jpg",
+      "alt": "PXL_20250419_155925395"
+    },
+    {
+      "src": "/images/gallery-landscape/PXL_20250419_155928593.jpg",
+      "alt": "PXL_20250419_155928593"
+    },
+    {
+      "src": "/images/gallery-landscape/PXL_20250419_160116642.jpg",
+      "alt": "PXL_20250419_160116642"
+    },
+    {
+      "src": "/images/gallery-landscape/PXL_20250419_160135939.jpg",
+      "alt": "PXL_20250419_160135939"
+    },
+    {
+      "src": "/images/gallery-landscape/PXL_20250626_193430947.jpg",
+      "alt": "PXL_20250626_193430947"
+    },
+    {
+      "src": "/images/gallery-landscape/PXL_20250626_193443600.jpg",
+      "alt": "PXL_20250626_193443600"
+    },
+    {
+      "src": "/images/gallery-landscape/PXL_20250626_195529892.jpg",
+      "alt": "PXL_20250626_195529892"
+    },
+    {
+      "src": "/images/gallery-landscape/PXL_20250626_195609615.jpg",
+      "alt": "PXL_20250626_195609615"
+    },
+    {
+      "src": "/images/gallery-landscape/PXL_20250626_195821721.jpg",
+      "alt": "PXL_20250626_195821721"
+    },
+    {
+      "src": "/images/gallery-landscape/PXL_20250626_201155415.jpg",
+      "alt": "PXL_20250626_201155415"
+    },
+    {
+      "src": "/images/gallery-landscape/PXL_20250626_201241119.jpg",
+      "alt": "PXL_20250626_201241119"
+    },
+    {
+      "src": "/images/gallery-landscape/PXL_20250626_201246801.jpg",
+      "alt": "PXL_20250626_201246801"
+    },
+    {
+      "src": "/images/gallery-landscape/PXL_20250626_202915274.jpg",
+      "alt": "PXL_20250626_202915274"
+    },
+    {
+      "src": "/images/gallery-landscape/PXL_20250927_154233492.jpg",
+      "alt": "PXL_20250927_154233492"
+    },
+    {
+      "src": "/images/gallery-landscape/PXL_20250927_161102997.jpg",
+      "alt": "PXL_20250927_161102997"
+    },
+    {
+      "src": "/images/gallery-landscape/PXL_20251029_175319377.jpg",
+      "alt": "PXL_20251029_175319377"
+    },
+    {
+      "src": "/images/gallery-landscape/PXL_20251029_175324688.jpg",
+      "alt": "PXL_20251029_175324688"
+    },
+    {
+      "src": "/images/gallery-landscape/PXL_20251029_180613064.jpg",
+      "alt": "PXL_20251029_180613064"
+    },
+    {
+      "src": "/images/gallery-landscape/PXL_20251029_185034513.jpg",
+      "alt": "PXL_20251029_185034513"
+    },
+    {
+      "src": "/images/gallery-landscape/PXL_20251106_192218154.jpg",
+      "alt": "PXL_20251106_192218154"
+    },
+    {
+      "src": "/images/gallery-landscape/PXL_20251119_185137566.MP.jpg",
+      "alt": "PXL_20251119_185137566.MP"
+    },
+    {
+      "src": "/images/gallery-landscape/PXL_20251119_200520962.jpg",
+      "alt": "PXL_20251119_200520962"
+    },
+    {
+      "src": "/images/gallery-landscape/PXL_20260102_204654542.jpg",
+      "alt": "PXL_20260102_204654542"
+    },
+    {
+      "src": "/images/gallery-landscape/PXL_20260119_194358566.jpg",
+      "alt": "PXL_20260119_194358566"
+    },
+    {
+      "src": "/images/gallery-landscape/Pond-Eagle-Oaks.jpg",
+      "alt": "Pond Eagle Oaks"
+    },
+    {
+      "src": "/images/gallery-landscape/Prickly-Pear-Pass-01.jpg",
+      "alt": "Prickly Pear Pass 01"
+    },
+    {
+      "src": "/images/gallery-landscape/Prickly-Pear-Pass-02.jpg",
+      "alt": "Prickly Pear Pass 02"
+    },
+    {
+      "src": "/images/gallery-landscape/Prickly-Pear-Pass-03.jpg",
+      "alt": "Prickly Pear Pass 03"
+    },
+    {
+      "src": "/images/gallery-landscape/Prickly-Pear-Pass-04.jpg",
+      "alt": "Prickly Pear Pass 04"
+    }
+  ]
+}
