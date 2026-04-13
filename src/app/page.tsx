@@ -158,13 +158,22 @@ export default function Home() {
       <section className="relative w-full overflow-hidden h-[700px] bg-[#0c0a09]" id="property">
         <div className="max-w-[1440px] mx-auto h-full relative overflow-hidden">
           <Image
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover object-bottom"
             alt="Cinematic shot of a spring-fed pond at the Austin rural estate"
             src="/images/Pond-1.JPG"
             fill
             priority
             quality={95}
           />
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover object-top"
+          >
+            <source src="/images/gallery-wildlife/Deer-family-01.mp4" type="video/mp4" />
+          </video>
           <div className="absolute inset-0 bg-gradient-to-b from-transparent from-75% to-[#0c0a09]"></div>
           <div className="absolute inset-0 flex flex-col justify-end px-6 md:px-12 pb-24 max-w-7xl mx-auto w-full">
             <div className="max-w-3xl">
@@ -176,12 +185,14 @@ export default function Home() {
                 <h2 className="text-xl md:text-2xl font-normal leading-relaxed max-w-2xl">
                   A natural canvas of raw, rural land, with diverse topography and abundant wildlife.
                 </h2>
+                {/* 
                 <div className="flex items-center gap-4 group cursor-pointer">
                   <div className="w-12 h-12 rounded-full border border-[#78716c] flex flex-shrink-0 items-center justify-center group-hover:bg-[#f5f5f4] group-hover:text-[#1c1917] transition-all duration-500">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor"><path d="M320-200v-560l440 280-440 280Z" /></svg>
                   </div>
                   <span className="uppercase text-[0.7rem] tracking-widest font-semibold">Play Property Film</span>
                 </div>
+                */}
               </div>
             </div>
           </div>
@@ -384,6 +395,15 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
             <div className="order-2 md:order-1 relative w-full aspect-[4/5] rounded-sm overflow-hidden group">
               <Image fill className="object-cover object-top transition-transform duration-1000 scale-[1.10] group-hover:scale-[1.18]" alt="Graceful whitetail deer in a sun-dappled meadow" src="/images/gallery-wildlife/Doe-04.jpg" />
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-1000 scale-[1.10] group-hover:scale-[1.18]"
+              >
+                <source src="/images/gallery-wildlife/Deer-family-01.mp4" type="video/mp4" />
+              </video>
             </div>
             <div className="order-1 md:order-2">
               <SectionHeader
