@@ -402,7 +402,7 @@ export default function Home() {
                 playsInline
                 className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-1000 scale-[1.15] group-hover:scale-[1.18]"
               >
-                <source src="/images/gallery-wildlife/Coyote-solo-01.mp4" type="video/mp4" />
+                <source src="/images/gallery-wildlife/Deer-family-02.mp4" type="video/mp4" />
               </video>
             </div>
             <div className="order-1 md:order-2">
